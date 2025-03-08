@@ -10,9 +10,30 @@ config_version=5
 
 [application]
 
-config/name="jiaoziria"
+config/name="Mama's Jiaoziria"
+config/description="As a new employee at Mama's Jiaoziria, you’ll learn to craft perfect *jiaozi* (dumplings), take on a growing flood of orders, and impress even the toughest food critics."
+config/version="0.1.0"
+run/main_scene="uid://biitqh5jxdglh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LokGlobalStorageManager="*res://addons/locker/scripts/storage_manager/global_storage_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/locker/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://0j4mxgu2f0mj"
 
 [rendering]
 

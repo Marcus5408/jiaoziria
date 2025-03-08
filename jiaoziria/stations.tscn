@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c41m5pxoqmytx"]
+
+[ext_resource type="Script" uid="uid://cw3w2g4oond34" path="res://station-switcher/stations.gd" id="1_rr033"]
+
+[node name="Stations" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rr033")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -603.0
+offset_top = -86.0
+offset_right = -33.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Order" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Order"
+
+[node name="Prepare" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Prep
+"
+
+[node name="Cook" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Cook"
+
+[node name="Sauce" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Sauce"
+
+[connection signal="pressed" from="HBoxContainer/Order" to="." method="_on_order_pressed"]
+[connection signal="pressed" from="HBoxContainer/Prepare" to="." method="_on_prepare_pressed"]
+[connection signal="pressed" from="HBoxContainer/Cook" to="." method="_on_cook_pressed"]
+[connection signal="pressed" from="HBoxContainer/Sauce" to="." method="_on_sauce_pressed"]
