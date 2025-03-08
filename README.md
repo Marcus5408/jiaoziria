@@ -12,6 +12,6 @@ As a new employee at Mama's Jiaoziria, you’ll learn to craft perfect *jiaozi* 
 
 | Issac Liu | Lubaba Nawla |
 | --- | --- |
-| ![Issac Liu](issac.png) | ![Lubaba Nawla](lubaba.png) |
+| ![Issac Liu](./pictures/issac.png) | ![Lubaba Nawla](./pictures/lubaba.png) |
 | github.com/[Marcus5408](https://github.com/Marcus5408) | github.com/[LubabaNawla](https://github.com/lubabanawla) |
 | [@Issac](https://hackclub.slack.com/team/U07RWNM1K88) on Slack | [@lubabaxn](https://hackclub.slack.com/team/U07QMKGN2S0) on Slack |
