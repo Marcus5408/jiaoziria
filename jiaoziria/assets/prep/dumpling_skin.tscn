@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfdab5rtdwbfn"]
+
+[ext_resource type="Script" uid="uid://bl7evqchbxuoc" path="res://assets/prep/dumpling_skin.gd" id="1_kr0gc"]
+[ext_resource type="Texture2D" uid="uid://dsu05gswkcpmd" path="res://assets/prep/dumpling_skin.svg" id="1_s3l6q"]
+
+[node name="DumplingSkin" type="Node2D"]
+script = ExtResource("1_kr0gc")
+
+[node name="DumplingSkin" type="Sprite2D" parent="."]
+position = Vector2(150, 93)
+texture = ExtResource("1_s3l6q")
+
+[node name="TextureButton" type="TextureButton" parent="DumplingSkin"]
+offset_left = -150.0
+offset_top = -93.0
+offset_right = 152.0
+offset_bottom = 94.0
+
+[connection signal="button_down" from="DumplingSkin/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="DumplingSkin/TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="DumplingSkin/TextureButton" to="." method="_on_texture_button_pressed"]

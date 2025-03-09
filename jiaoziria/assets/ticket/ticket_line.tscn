@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://mlmn8xey5iy5"]
+
+[ext_resource type="Texture2D" uid="uid://c7h4f0g63fhlh" path="res://assets/ticket/TicketLine.svg" id="1_g136u"]
+[ext_resource type="Script" uid="uid://ddwurfwyl70a8" path="res://assets/ticket/ticket_line.gd" id="1_ncm17"]
+[ext_resource type="Texture2D" uid="uid://dbrms5p038i8w" path="res://assets/ticket/LineHookBG.svg" id="2_ncm17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncm17"]
+size = Vector2(1920, 248.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssiu"]
+size = Vector2(1505.88, 117)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ssiu"]
+radius = 161.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ahr"]
+size = Vector2(96, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6pmn"]
+size = Vector2(319.5, 190)
+
+[node name="TicketLine" type="Node2D"]
+script = ExtResource("1_ncm17")
+
+[node name="LineArea2D" type="Area2D" parent="."]
+position = Vector2(0, -130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LineArea2D"]
+position = Vector2(960, 195)
+shape = SubResource("RectangleShape2D_ncm17")
+
+[node name="TicketLine" type="Sprite2D" parent="."]
+position = Vector2(753.5, 0)
+texture = ExtResource("1_g136u")
+
+[node name="TicketLineArea2D" type="Area2D" parent="TicketLine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TicketLine/TicketLineArea2D"]
+position = Vector2(-0.4375, -0.5)
+shape = SubResource("RectangleShape2D_8ssiu")
+
+[node name="LineHookBg" type="Sprite2D" parent="."]
+position = Vector2(1666, 0)
+texture = ExtResource("2_ncm17")
+offset = Vector2(47, 0)
+
+[node name="LineHookArea2D" type="Area2D" parent="LineHookBg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LineHookBg/LineHookArea2D"]
+shape = SubResource("CircleShape2D_8ssiu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LineHookBg/LineHookArea2D"]
+position = Vector2(206, -10)
+shape = SubResource("RectangleShape2D_g0ahr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LineHookBg/LineHookArea2D"]
+position = Vector2(0, 95)
+shape = SubResource("RectangleShape2D_b6pmn")
+
+[connection signal="area_entered" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_exited"]

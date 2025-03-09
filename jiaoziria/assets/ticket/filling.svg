@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="425" height="193" viewBox="0 0 425 193">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M116,96.5C116,43.2045,159.2046,0,212.5,0H0v193h212.5c-53.2954,0-96.5-43.2045-96.5-96.5Z" style="fill: #fff;"/>
+      <path d="M212.5,0c53.2954,0,96.5,43.2045,96.5,96.5s-43.2046,96.5-96.5,96.5h212.5V0h-212.5Z" style="fill: #fff;"/>
+    </g>
+  </g>
+</svg>

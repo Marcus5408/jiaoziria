@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://i3jsr5adtc2w"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1857.0
+offset_top = 991.0
+offset_right = 1909.0
+offset_bottom = 1086.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 94
+text = "3"

@@ -1,0 +1,42 @@
+{
+    "a": {
+        "name": "Alice",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "b": {
+        "name": "Bob",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "c": {
+        "name": "Charlie",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "d": {
+        "name": "Diana",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "e": {
+        "name": "Eve",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "f": {
+        "name": "Frank",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "g": {
+        "name": "Grace",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    },
+    "h": {
+        "name": "Heidi",
+        "image": "res://customer.tscn",
+        "pickiness": 0.5
+    }
+}

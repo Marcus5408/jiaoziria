@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="464" height="772" viewBox="0 0 464 772">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect x="5" y="5" width="454" height="762" style="fill: #fff; stroke: #b3b3b3; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    <g>
+      <path d="M232,46c-5.5137,0-10-4.4858-10-10s4.4863-10,10-10,10,4.4858,10,10-4.4863,10-10,10Z" style="fill: #ccc; fill-rule: evenodd;"/>
+      <path d="M232,31c2.757,0,5,2.243,5,5s-2.243,5-5,5-5-2.243-5-5,2.243-5,5-5M232,21c-8.2843,0-15,6.7157-15,15s6.7157,15,15,15,15-6.7157,15-15-6.7157-15-15-15h0Z" style="fill: #b3b3b3;"/>
+    </g>
+    <g>
+      <line x1="159" y1="67" x2="159" y2="73" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="159" y1="84.8387" x2="159" y2="434.0806" style="fill: none; stroke: #f99; stroke-dasharray: 11.8387 11.8387; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="159" y1="440" x2="159" y2="446" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    </g>
+    <g>
+      <line x1="12" y1="446" x2="18" y2="446" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="30.2572" y1="446" x2="440.8715" y2="446" style="fill: none; stroke: #f99; stroke-dasharray: 12.2571 12.2571; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="447" y1="446" x2="453" y2="446" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    </g>
+    <g>
+      <line x1="12" y1="547" x2="18" y2="547" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="30.2572" y1="547" x2="440.8715" y2="547" style="fill: none; stroke: #f99; stroke-dasharray: 12.2571 12.2571; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="447" y1="547" x2="453" y2="547" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    </g>
+    <g>
+      <line x1="306" y1="67" x2="306" y2="73" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="306" y1="84.8387" x2="306" y2="434.0806" style="fill: none; stroke: #f99; stroke-dasharray: 11.8387 11.8387; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="306" y1="440" x2="306" y2="446" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    </g>
+    <g>
+      <line x1="12" y1="67" x2="18" y2="67" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="30.2572" y1="67" x2="440.8715" y2="67" style="fill: none; stroke: #f99; stroke-dasharray: 12.2571 12.2571; stroke-miterlimit: 10; stroke-width: 10px;"/>
+      <line x1="447" y1="67" x2="453" y2="67" style="fill: none; stroke: #f99; stroke-miterlimit: 10; stroke-width: 10px;"/>
+    </g>
+  </g>
+</svg>
