@@ -1,8 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfnwnic2bb17k"]
+[gd_scene format=3 uid="uid://cfnwnic2bb17k"]
 
-[ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://game/station-switcher/stations.tscn" id="1_q6uj1"]
-
-[node name="Control" type="Control"]
+[node name="SauceStation" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,10 +14,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.379758, 0.302773, 0.165158, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
-scale = Vector2(0.82599, 0.656996)
-
 [node name="PageLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 960.0
@@ -29,6 +23,3 @@ offset_bottom = 637.0
 theme_override_font_sizes/font_size = 96
 text = "Sauce"
 horizontal_alignment = 1
-
-[node name="Stations" parent="." instance=ExtResource("1_q6uj1")]
-layout_mode = 1
