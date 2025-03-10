@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://yvsoa2ynjvda"]
+[gd_scene load_steps=18 format=3 uid="uid://yvsoa2ynjvda"]
 
 [ext_resource type="Script" uid="uid://brkv322lhkn45" path="res://assets/ticket/ticket.gd" id="1_q1n30"]
 [ext_resource type="Texture2D" uid="uid://bewmjw0ywb7be" path="res://assets/ticket/ticket.svg" id="2_w1tl6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kwih73qenkg2" path="res://assets/ticket/filling1.svg" id="4_3uyju"]
 [ext_resource type="Texture2D" uid="uid://cfg4qcnrouu6n" path="res://assets/ticket/filling2.svg" id="5_7jts2"]
 [ext_resource type="Texture2D" uid="uid://cao1auynhwvb4" path="res://assets/ticket/clock-base.svg" id="5_y350l"]
+[ext_resource type="Texture2D" uid="uid://dt7usty00jv2t" path="res://assets/fillings/none/icon.png" id="6_5rapc"]
 [ext_resource type="Texture2D" uid="uid://c65odh3p72oim" path="res://assets/ticket/clock-hand.svg" id="6_o3t0w"]
 [ext_resource type="Texture2D" uid="uid://bupx8a55gv3po" path="res://assets/ticket/cook-pot.svg" id="8_78dgv"]
 [ext_resource type="Texture2D" uid="uid://2mm3w7oji6fd" path="res://assets/ticket/sauce-base.svg" id="9_7jts2"]
@@ -42,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
 }
 
 [sub_resource type="Animation" id="Animation_iwr3w"]
@@ -58,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n2x7t"]
@@ -70,15 +71,6 @@ _data = {
 
 [node name="Ticket" type="Node2D"]
 script = ExtResource("1_q1n30")
-ticketID = 1
-filling1 = 6
-clockTarget = 5
-cookingMethod = 1
-sauce2Base = 3
-sauce2Addition3 = 4
-sauce3Base = 2
-sauce3Addition2 = 4
-sauce3Addition3 = 2
 
 [node name="TicketArea2D" type="Area2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -120,15 +112,25 @@ theme_override_fonts/font = ExtResource("3_y350l")
 theme_override_font_sizes/font_size = 42
 text = "HC1"
 
-[node name="Filling1" type="Sprite2D" parent="."]
+[node name="Filling1Base" type="Sprite2D" parent="."]
 position = Vector2(-53, 311)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_3uyju")
 
-[node name="Filling2" type="Sprite2D" parent="."]
+[node name="Filling1Icon" type="Sprite2D" parent="."]
+position = Vector2(-77, 311)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("6_5rapc")
+
+[node name="Filling2Base" type="Sprite2D" parent="."]
 position = Vector2(53, 311)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_7jts2")
+
+[node name="Filling2Icon" type="Sprite2D" parent="."]
+position = Vector2(77, 311)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("6_5rapc")
 
 [node name="ClockBase" type="Sprite2D" parent="."]
 position = Vector2(21, 230)

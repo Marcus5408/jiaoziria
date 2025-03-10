@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://xsvmyhmey26i"]
+[gd_scene load_steps=5 format=3 uid="uid://xsvmyhmey26i"]
 
 [ext_resource type="Script" uid="uid://dm0sj4i8i3eyt" path="res://game/2_prep.gd" id="1_i0f2h"]
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://game/station-switcher/stations.tscn" id="1_o5cwm"]
 [ext_resource type="Texture2D" uid="uid://bgoyi4ogo8d8p" path="res://assets/prep/prep_station.svg" id="1_tpu8i"]
 [ext_resource type="PackedScene" uid="uid://cfdab5rtdwbfn" path="res://assets/prep/dumpling_skin.tscn" id="4_i0f2h"]
-[ext_resource type="PackedScene" uid="uid://mlmn8xey5iy5" path="res://assets/ticket/ticket_line.tscn" id="5_i183c"]
-[ext_resource type="PackedScene" uid="uid://yvsoa2ynjvda" path="res://assets/ticket/ticket.tscn" id="6_7fig5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,12 +17,6 @@ script = ExtResource("1_i0f2h")
 [node name="PrepStation" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_tpu8i")
-
-[node name="TicketLine" parent="." instance=ExtResource("5_i183c")]
-position = Vector2(0, 59)
-
-[node name="Ticket" parent="." instance=ExtResource("6_7fig5")]
-position = Vector2(1667, 130)
 
 [node name="Stations" parent="." instance=ExtResource("1_o5cwm")]
 layout_mode = 1

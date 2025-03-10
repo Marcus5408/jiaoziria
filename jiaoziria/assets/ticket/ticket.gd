@@ -2,15 +2,14 @@ extends Node2D
 
 @export_group("Ticket Info")
 @export var ticketID : int = 0
+@export var ticketIdentifier : String = ""
 
 @export_group("Filling")
 @export var filling1 : FillingType = FillingType.PORK
 @export var filling2 : FillingType = FillingType.CABBAGE
 
-@export_group("Clock")
+@export_group("Cooking")
 @export var clockTarget : int = 0
-
-@export_group("Cooking Method")
 @export var cookingMethod : CookingMethod = CookingMethod.BOIL
 
 @export_group("Sauce 1")
@@ -43,6 +42,7 @@ enum FillingType {
     BEEF,
     TOFU,
     KIMCHI,
+    ORPHEUS,
     NONE
 }
 
@@ -70,33 +70,46 @@ enum SauceAddition {
     NONE
 }
 
+enum ImageType {
+    ICON,
+    FRAME,
+    FULL
+}
+
+func _get_image_path(filling: FillingType, imageType: ImageType):
+    return "res://assets/fillings/%s/%s.png" % [FillingType.keys()[filling], ImageType.keys()[imageType]]
+
 func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
     # find the filling node and set the texture to the filling type
-    var fillingNode = get_node("Filling%d" % fillingNumber)
+    var fillingNode = get_node("Filling%dBase" % fillingNumber)
+    var fillingIconNode = get_node("Filling%dIcon" % fillingNumber)
     print("Filling node: ", fillingNode)
     if fillingNode == null:
         printerr("Invalid filling number passed to Ticket: " + str(fillingNumber))
     
     # set the modulate of the filling node to the correct color for that filling
-    var filling_colors = {
-        FillingType.PORK: Color(1, 0.5, 0.5),
-        FillingType.CABBAGE: Color(0.5, 1, 0.5),
-        FillingType.SCALLION: Color(0.5, 1, 0.5),
-        FillingType.CHIVE: Color(0.5, 1, 0.5),
-        FillingType.SHRIMP: Color(1, 0.5, 0.5),
-        FillingType.CHICKEN: Color(1, 0.5, 0.5),
-        FillingType.MUSHROOM: Color(0.5, 0.5, 1),
-        FillingType.BEEF: Color(1, 0.5, 0.5),
-        FillingType.TOFU: Color(1, 1, 1),
-        FillingType.KIMCHI: Color(1, 0.5, 0.5),
-        FillingType.NONE: Color(1, 1, 1)
+    var filling_graphics = {
+        FillingType.PORK: { "color": Color(1.0, 0.8353, 0.8431), "image": _get_image_path(FillingType.PORK, ImageType.ICON) },
+        FillingType.CABBAGE: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.CABBAGE, ImageType.ICON) },
+        FillingType.SCALLION: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.SCALLION, ImageType.ICON) },
+        FillingType.CHIVE: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.CHIVE, ImageType.ICON) },
+        FillingType.SHRIMP: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.SHRIMP, ImageType.ICON) },
+        FillingType.CHICKEN: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.CHICKEN, ImageType.ICON) },
+        FillingType.MUSHROOM: { "color": Color(0.5, 0.5, 1), "image": _get_image_path(FillingType.MUSHROOM, ImageType.ICON) },
+        FillingType.BEEF: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.BEEF, ImageType.ICON) },
+        FillingType.TOFU: { "color": Color(1, 1, 1), "image": _get_image_path(FillingType.TOFU, ImageType.ICON) },
+        FillingType.KIMCHI: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.KIMCHI, ImageType.ICON) },
+        FillingType.ORPHEUS: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.ORPHEUS, ImageType.ICON) },
+        FillingType.NONE: { "color": Color(1, 1, 1), "image": _get_image_path(FillingType.NONE, ImageType.ICON) }
     }
 
-    if filling in filling_colors:
+    if filling in filling_graphics:
         if filling == FillingType.NONE and fillingNumber == 1:
             printerr("Cannot set filling 1 to none!")
             return
-        fillingNode.modulate = filling_colors[filling]
+        fillingNode.modulate = filling_graphics[filling]["color"]
+        fillingIconNode.texture = load(filling_graphics[filling]["image"])
+        fillingIconNode.scale = Vector2(0.11, 0.11)
     else:
         printerr("Invalid filling type passed to Ticket: " + str(FillingType.keys()[filling]))
         return
@@ -182,6 +195,11 @@ func _set_sauce_addition(sauceNumber: int, additionNumber: int, addition: SauceA
 func _ready():
     var ticketIDLabel = $TicketID
     ticketIDLabel.text = "HC" + str(ticketID)
+    if ticketIdentifier == "":
+        # warning: ticketIdentifier is empty
+        print("Warning: ticketIdentifier is empty!")
+    else:
+        print("Ticket identifier: ", ticketIdentifier)
     ticketButton.set_process_input(false)
     ticketButton.set_process(false)
     original_position = position
@@ -200,7 +218,7 @@ var dragging = false
 var drag_offset = Vector2()
 var drag_active = false
 
-var original_position = Vector2()
+var original_position = Vector2(960, 540)  # Default position
 @onready var ticketButton = $TextureButton
 @onready var animationPlayer = $AnimationPlayer
 var areasTouched = []

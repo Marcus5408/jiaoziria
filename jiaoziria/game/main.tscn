@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://djso10v8qfxan"]
+
+[ext_resource type="Script" uid="uid://cpnxgvwrkcbbd" path="res://game/main.gd" id="1_xtpaf"]
+[ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-order.tscn" id="2_emt18"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xtpaf")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1920, 1080)
+
+[node name="Node2D" parent="SubViewport" instance=ExtResource("2_emt18")]
