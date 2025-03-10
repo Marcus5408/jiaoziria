@@ -1,34 +1,34 @@
 extends Node2D
 
 @export_group("Ticket Info")
-@export var ticketID : int = 0
-@export var ticketIdentifier : String = ""
+@export var ticketID: int = 0
+@export var ticketIdentifier: String = ""
 
 @export_group("Filling")
-@export var filling1 : FillingType = FillingType.PORK
-@export var filling2 : FillingType = FillingType.CABBAGE
+@export var filling1: FillingType = FillingType.PORK
+@export var filling2: FillingType = FillingType.CABBAGE
 
 @export_group("Cooking")
-@export var clockTarget : int = 0
-@export var cookingMethod : CookingMethod = CookingMethod.BOIL
+@export var clockTarget: int = 0
+@export var cookingMethod: CookingMethod = CookingMethod.BOIL
 
 @export_group("Sauce 1")
-@export var sauce1Base : SauceBase = SauceBase.SOY_SAUCE
-@export var sauce1Addition1 : SauceAddition = SauceAddition.GINGER
-@export var sauce1Addition2 : SauceAddition = SauceAddition.SCALLION
-@export var sauce1Addition3 : SauceAddition = SauceAddition.GINGER
+@export var sauce1Base: SauceBase = SauceBase.SOY_SAUCE
+@export var sauce1Addition1: SauceAddition = SauceAddition.GINGER
+@export var sauce1Addition2: SauceAddition = SauceAddition.SCALLION
+@export var sauce1Addition3: SauceAddition = SauceAddition.GINGER
 
 @export_group("Sauce 2")
-@export var sauce2Base : SauceBase = SauceBase.SOY_SAUCE
-@export var sauce2Addition1 : SauceAddition = SauceAddition.GINGER
-@export var sauce2Addition2 : SauceAddition = SauceAddition.SCALLION
-@export var sauce2Addition3 : SauceAddition = SauceAddition.GINGER
+@export var sauce2Base: SauceBase = SauceBase.SOY_SAUCE
+@export var sauce2Addition1: SauceAddition = SauceAddition.GINGER
+@export var sauce2Addition2: SauceAddition = SauceAddition.SCALLION
+@export var sauce2Addition3: SauceAddition = SauceAddition.GINGER
 
 @export_group("Sauce 3")
-@export var sauce3Base : SauceBase = SauceBase.SOY_SAUCE
-@export var sauce3Addition1 : SauceAddition = SauceAddition.GINGER
-@export var sauce3Addition2 : SauceAddition = SauceAddition.SCALLION
-@export var sauce3Addition3 : SauceAddition = SauceAddition.GINGER
+@export var sauce3Base: SauceBase = SauceBase.SOY_SAUCE
+@export var sauce3Addition1: SauceAddition = SauceAddition.GINGER
+@export var sauce3Addition2: SauceAddition = SauceAddition.SCALLION
+@export var sauce3Addition3: SauceAddition = SauceAddition.GINGER
 
 # fillingType type
 enum FillingType {
@@ -76,7 +76,7 @@ enum ImageType {
     FULL
 }
 
-func _get_image_path(filling: FillingType, imageType: ImageType):
+func _get_image_path(filling: FillingType, imageType: ImageType) -> String:
     return "res://assets/fillings/%s/%s.png" % [FillingType.keys()[filling], ImageType.keys()[imageType]]
 
 func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
@@ -86,21 +86,57 @@ func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
     print("Filling node: ", fillingNode)
     if fillingNode == null:
         printerr("Invalid filling number passed to Ticket: " + str(fillingNumber))
-    
+
     # set the modulate of the filling node to the correct color for that filling
     var filling_graphics = {
-        FillingType.PORK: { "color": Color(1.0, 0.8353, 0.8431), "image": _get_image_path(FillingType.PORK, ImageType.ICON) },
-        FillingType.CABBAGE: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.CABBAGE, ImageType.ICON) },
-        FillingType.SCALLION: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.SCALLION, ImageType.ICON) },
-        FillingType.CHIVE: { "color": Color(0.5, 1, 0.5), "image": _get_image_path(FillingType.CHIVE, ImageType.ICON) },
-        FillingType.SHRIMP: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.SHRIMP, ImageType.ICON) },
-        FillingType.CHICKEN: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.CHICKEN, ImageType.ICON) },
-        FillingType.MUSHROOM: { "color": Color(0.5, 0.5, 1), "image": _get_image_path(FillingType.MUSHROOM, ImageType.ICON) },
-        FillingType.BEEF: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.BEEF, ImageType.ICON) },
-        FillingType.TOFU: { "color": Color(1, 1, 1), "image": _get_image_path(FillingType.TOFU, ImageType.ICON) },
-        FillingType.KIMCHI: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.KIMCHI, ImageType.ICON) },
-        FillingType.ORPHEUS: { "color": Color(1, 0.5, 0.5), "image": _get_image_path(FillingType.ORPHEUS, ImageType.ICON) },
-        FillingType.NONE: { "color": Color(1, 1, 1), "image": _get_image_path(FillingType.NONE, ImageType.ICON) }
+        FillingType.PORK: {
+            "color": Color(1.0, 0.8353, 0.8431),
+            "image": _get_image_path(FillingType.PORK, ImageType.ICON)
+            },
+        FillingType.CABBAGE: {
+            "color": Color(0.5, 1, 0.5),
+            "image": _get_image_path(FillingType.CABBAGE, ImageType.ICON)
+            },
+        FillingType.SCALLION: {
+            "color": Color(0.5, 1, 0.5), 
+            "image": _get_image_path(FillingType.SCALLION, ImageType.ICON)
+            },
+        FillingType.CHIVE: {
+            "color": Color(0.5, 1, 0.5), 
+            "image": _get_image_path(FillingType.CHIVE, ImageType.ICON)
+            },
+        FillingType.SHRIMP: {
+            "color": Color(1, 0.5, 0.5), 
+            "image": _get_image_path(FillingType.SHRIMP, ImageType.ICON)
+            },
+        FillingType.CHICKEN: {
+            "color": Color(1, 0.5, 0.5), 
+            "image": _get_image_path(FillingType.CHICKEN, ImageType.ICON)
+            },
+        FillingType.MUSHROOM: {
+            "color": Color(0.5, 0.5, 1), 
+            "image": _get_image_path(FillingType.MUSHROOM, ImageType.ICON)
+            },
+        FillingType.BEEF: {
+            "color": Color(1, 0.5, 0.5), 
+            "image": _get_image_path(FillingType.BEEF, ImageType.ICON)
+            },
+        FillingType.TOFU: {
+            "color": Color(1, 1, 1), 
+            "image": _get_image_path(FillingType.TOFU, ImageType.ICON)
+            },
+        FillingType.KIMCHI: {
+            "color": Color(1, 0.5, 0.5), 
+            "image": _get_image_path(FillingType.KIMCHI, ImageType.ICON)
+            },
+        FillingType.ORPHEUS: {
+            "color": Color(1, 0.5, 0.5), 
+            "image": _get_image_path(FillingType.ORPHEUS, ImageType.ICON)
+            },
+        FillingType.NONE: {
+            "color": Color(1, 1, 1), 
+            "image": _get_image_path(FillingType.NONE, ImageType.ICON)
+            }
     }
 
     if filling in filling_graphics:
@@ -177,7 +213,7 @@ func _set_sauce_addition(sauceNumber: int, additionNumber: int, addition: SauceA
     if sauceAdditionNode == null:
         push_error("Invalid addition number passed to Ticket: " + str(additionNumber))
         return
-    
+
     var addition_colors = {
         SauceAddition.GARLIC: Color(1, 1, 0),
         SauceAddition.GINGER: Color(1, 0.5, 0),

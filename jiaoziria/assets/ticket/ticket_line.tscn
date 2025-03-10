@@ -8,7 +8,7 @@
 size = Vector2(1920, 248.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssiu"]
-size = Vector2(1505.88, 117)
+size = Vector2(1506.72, 117.75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ssiu"]
 radius = 161.0
@@ -36,7 +36,6 @@ texture = ExtResource("1_g136u")
 [node name="TicketLineArea2D" type="Area2D" parent="TicketLine"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TicketLine/TicketLineArea2D"]
-position = Vector2(-0.4375, -0.5)
 shape = SubResource("RectangleShape2D_8ssiu")
 
 [node name="LineHookBg" type="Sprite2D" parent="."]
