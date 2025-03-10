@@ -13,14 +13,13 @@ config_version=5
 config/name="Mama's Jiaoziria"
 config/description="As a new employee at Mama's Jiaoziria, you’ll learn to craft perfect *jiaozi* (dumplings), take on a growing flood of orders, and impress even the toughest food critics."
 config/version="0.1.0"
-run/main_scene="uid://biitqh5jxdglh"
+run/main_scene="uid://oqh0lxyrffvy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://game/icon.svg"
 
 [autoload]
 
 LokGlobalStorageManager="*res://addons/locker/scripts/storage_manager/global_storage_manager.gd"
-Main="*res://game/main.gd"
 
 [display]
 

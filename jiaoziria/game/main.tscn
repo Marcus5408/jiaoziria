@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://djso10v8qfxan"]
+[gd_scene load_steps=8 format=3 uid="uid://oqh0lxyrffvy"]
 
 [ext_resource type="Script" uid="uid://cpnxgvwrkcbbd" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-order.tscn" id="2_emt18"]
+[ext_resource type="PackedScene" uid="uid://mlmn8xey5iy5" path="res://assets/ticket/ticket_line.tscn" id="3_emt18"]
+[ext_resource type="PackedScene" uid="uid://xsvmyhmey26i" path="res://game/2-prep.tscn" id="4_vop5m"]
+[ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook.tscn" id="5_dgpao"]
+[ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce.tscn" id="6_wjctj"]
+[ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://game/station-switcher/stations.tscn" id="7_wjctj"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,7 +17,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xtpaf")
 
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(1920, 1080)
+[node name="StationsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1920
 
-[node name="Node2D" parent="SubViewport" instance=ExtResource("2_emt18")]
+[node name="OrderScreen" parent="StationsContainer" instance=ExtResource("2_emt18")]
+layout_mode = 2
+
+[node name="PrepStation" parent="StationsContainer" instance=ExtResource("4_vop5m")]
+layout_mode = 2
+
+[node name="CookStation" parent="StationsContainer" instance=ExtResource("5_dgpao")]
+layout_mode = 2
+
+[node name="SauceStation" parent="StationsContainer" instance=ExtResource("6_wjctj")]
+layout_mode = 2
+
+[node name="StationsSwitcher" parent="." instance=ExtResource("7_wjctj")]
+layout_mode = 1
+
+[node name="TicketLine" parent="." instance=ExtResource("3_emt18")]
+
+[connection signal="station_changed_to_cook" from="StationsSwitcher" to="." method="_on_station_changed_to_cook"]
+[connection signal="station_changed_to_order" from="StationsSwitcher" to="." method="_on_station_changed_to_order"]
+[connection signal="station_changed_to_prep" from="StationsSwitcher" to="." method="_on_station_changed_to_prep"]
+[connection signal="station_changed_to_sauce" from="StationsSwitcher" to="." method="_on_station_changed_to_sauce"]

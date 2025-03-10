@@ -1,24 +1,18 @@
 extends Control
 
-func _on_order_pressed():
-    print("Order button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/1-order.tscn")
-    Main.current_scene = "order"
+signal station_changed_to_order
+signal station_changed_to_prep
+signal station_changed_to_cook
+signal station_changed_to_sauce
 
+func _on_order_pressed() -> void:
+    emit_signal("station_changed_to_order")
 
 func _on_prepare_pressed() -> void:
-    print("Prep button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/2-prep.tscn")
-    Main.current_scene = "prep"
-
+    emit_signal("station_changed_to_prep")
 
 func _on_cook_pressed() -> void:
-    print("Cook button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/3-cook.tscn")
-    Main.current_scene = "cook"
-
+    emit_signal("station_changed_to_cook")
 
 func _on_sauce_pressed() -> void:
-    print("Sauce button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/4-sauce.tscn")
-    Main.current_scene = "sauce"
+    emit_signal("station_changed_to_sauce")

@@ -20,6 +20,7 @@ size = Vector2(96, 74)
 size = Vector2(319.5, 190)
 
 [node name="TicketLine" type="Node2D"]
+position = Vector2(0, 59)
 script = ExtResource("1_ncm17")
 
 [node name="LineArea2D" type="Area2D" parent="."]
