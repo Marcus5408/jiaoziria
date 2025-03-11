@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://oqh0lxyrffvy"]
+[gd_scene load_steps=9 format=3 uid="uid://oqh0lxyrffvy"]
 
 [ext_resource type="Script" uid="uid://cpnxgvwrkcbbd" path="res://game/main.gd" id="1_xtpaf"]
 [ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-order.tscn" id="2_emt18"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook.tscn" id="5_dgpao"]
 [ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://game/station-switcher/stations.tscn" id="7_wjctj"]
+[ext_resource type="PackedScene" uid="uid://yvsoa2ynjvda" path="res://assets/ticket/ticket.tscn" id="8_xkbyp"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -39,6 +40,9 @@ layout_mode = 2
 layout_mode = 1
 
 [node name="TicketLine" parent="." instance=ExtResource("3_emt18")]
+
+[node name="Ticket" parent="." instance=ExtResource("8_xkbyp")]
+position = Vector2(1485, 474)
 
 [connection signal="station_changed_to_cook" from="StationsSwitcher" to="." method="_on_station_changed_to_cook"]
 [connection signal="station_changed_to_order" from="StationsSwitcher" to="." method="_on_station_changed_to_order"]

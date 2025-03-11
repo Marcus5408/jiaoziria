@@ -98,43 +98,43 @@ func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
             "image": _get_image_path(FillingType.CABBAGE, ImageType.ICON)
             },
         FillingType.SCALLION: {
-            "color": Color(0.5, 1, 0.5), 
+            "color": Color(0.5, 1, 0.5),
             "image": _get_image_path(FillingType.SCALLION, ImageType.ICON)
             },
         FillingType.CHIVE: {
-            "color": Color(0.5, 1, 0.5), 
+            "color": Color(0.5, 1, 0.5),
             "image": _get_image_path(FillingType.CHIVE, ImageType.ICON)
             },
         FillingType.SHRIMP: {
-            "color": Color(1, 0.5, 0.5), 
+            "color": Color(1, 0.5, 0.5),
             "image": _get_image_path(FillingType.SHRIMP, ImageType.ICON)
             },
         FillingType.CHICKEN: {
-            "color": Color(1, 0.5, 0.5), 
+            "color": Color(1, 0.5, 0.5),
             "image": _get_image_path(FillingType.CHICKEN, ImageType.ICON)
             },
         FillingType.MUSHROOM: {
-            "color": Color(0.5, 0.5, 1), 
+            "color": Color(0.5, 0.5, 1),
             "image": _get_image_path(FillingType.MUSHROOM, ImageType.ICON)
             },
         FillingType.BEEF: {
-            "color": Color(1, 0.5, 0.5), 
+            "color": Color(1, 0.5, 0.5),
             "image": _get_image_path(FillingType.BEEF, ImageType.ICON)
             },
         FillingType.TOFU: {
-            "color": Color(1, 1, 1), 
+            "color": Color(1, 1, 1),
             "image": _get_image_path(FillingType.TOFU, ImageType.ICON)
             },
         FillingType.KIMCHI: {
-            "color": Color(1, 0.5, 0.5), 
+            "color": Color(1, 0.5, 0.5),
             "image": _get_image_path(FillingType.KIMCHI, ImageType.ICON)
             },
         FillingType.ORPHEUS: {
-            "color": Color(1, 0.5, 0.5), 
+            "color": Color(1, 0.5, 0.5),
             "image": _get_image_path(FillingType.ORPHEUS, ImageType.ICON)
             },
         FillingType.NONE: {
-            "color": Color(1, 1, 1), 
+            "color": Color(1, 1, 1),
             "image": _get_image_path(FillingType.NONE, ImageType.ICON)
             }
     }
@@ -258,8 +258,8 @@ var original_position = Vector2(960, 540)  # Default position
 @onready var ticketButton = $TextureButton
 @onready var animationPlayer = $AnimationPlayer
 var areasTouched = []
-var ticketLineY = -481
-var lineHookCoords = Vector2(706, ticketLineY)  # Set this to the desired coordinates
+var ticketLineY = 58
+var lineHookCoords = Vector2(1665, ticketLineY)  # Set this to the desired coordinates
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():
@@ -275,20 +275,35 @@ func _process(_delta):
 func _on_texture_button_button_up():
     dragging = false
     print("Ticket released, dragging stopped")
+    var successfulSnap = false
+
     if "LineHookArea2D" in areasTouched:
         position = lineHookCoords
-        animationPlayer.play("grow")
+        original_position = lineHookCoords
+        successfulSnap = true
+        if scale < Vector2(1, 1):
+            animationPlayer.play("grow")
         print("Ticket moved to target position")
     elif "TicketLineArea2D" in areasTouched:
         position.y = ticketLineY
-        print("Ticket Y position set to 130")
+        original_position = Vector2(position.x, ticketLineY)  # Update original position
+        if scale > Vector2(1, 1):
+            animationPlayer.play("shrink_smaller")
+        successfulSnap = true
+        print("Ticket Y position set to", ticketLineY)
+
+    if !successfulSnap:
+        # If not successfully snapped to any area, return to original position
+        position = original_position
+        print("Ticket returned to original position")
 
 func _on_ticket_area_2d_area_entered(area: Area2D) -> void:
     # add the area to the list of touched areas
     areasTouched.append(area.name)
     if area.name == "LineArea2D":
         print("Ticket area entered")
-        animationPlayer.play("shrink")
+        animationPlayer.play("shrink_smaller")
+        scale = Vector2(1, 1)
     else:
         print("Ticket area not entered")
 
@@ -298,7 +313,7 @@ func _on_ticket_area_2d_area_exited(area: Area2D) -> void:
     match area.name:
         "LineArea2D":
             print("Ticket area exited")
-            animationPlayer.play("grow")
+            animationPlayer.play("grow_smaller")
         "LineHookArea2D":
             if !dragging:
                 print("Ticket area exited")
