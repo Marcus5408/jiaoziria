@@ -83,7 +83,7 @@ func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
     # find the filling node and set the texture to the filling type
     var fillingNode = get_node("Filling%dBase" % fillingNumber)
     var fillingIconNode = get_node("Filling%dIcon" % fillingNumber)
-    print("Filling node: ", fillingNode)
+    # print("Filling node: ", fillingNode)
     if fillingNode == null:
         printerr("Invalid filling number passed to Ticket: " + str(fillingNumber))
 
@@ -164,7 +164,7 @@ func _set_cooking_method(method: CookingMethod):
         if method == CookingMethod.NONE:
             printerr("Tip: Cooking method is set to NONE, this should not happen. Perhaps you instantiated a ticket without a cooking method?")
         return
-    print("Cooking method set to: ", cookingMethod)
+    # print("Cooking method set to: ", cookingMethod)
 
 func _set_clock_target(target: int) -> void:
     var clockNode = $ClockBase/ClockHand
@@ -175,8 +175,8 @@ func _set_clock_target(target: int) -> void:
         printerr("Invalid clock target passed to Ticket: ", target)
         return
     clockNode.rotation = clockRotation
-    print("Clock target set to: ", target)
-    print("Clock rotation set to: ", clockRotation)
+    # print("Clock target set to: ", target)
+    # print("Clock rotation set to: ", clockRotation)
     return
 
 func _set_sauce_base(number: int, sauceBase: SauceBase):
@@ -284,7 +284,7 @@ var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coord
 func _on_texture_button_button_down():
     dragging = true
     drag_offset = get_global_mouse_position() - position
-    print("Ticket pressed, dragging started")
+    # print("Ticket pressed, dragging started")
 
 func _process(_delta):
     if dragging:
@@ -293,7 +293,7 @@ func _process(_delta):
 # when mouse released
 func _on_texture_button_button_up():
     dragging = false
-    print("Ticket released, dragging stopped")
+    # print("Ticket released, dragging stopped")
     var successfulSnap = false
 
     if "LineHookArea2D" in areasTouched:
@@ -302,40 +302,40 @@ func _on_texture_button_button_up():
         successfulSnap = true
         if scale < Vector2(1, 1):
             animationPlayer.play("grow")
-        print("Ticket moved to target position")
+        # print("Ticket moved to target position")
     elif "TicketLineArea2D" in areasTouched:
         position.y = ticketLineY
         original_position = Vector2(position.x, ticketLineY)  # Update original position
         if scale > Vector2(1, 1):
             animationPlayer.play("shrink_smaller")
         successfulSnap = true
-        print("Ticket Y position set to", ticketLineY)
+        # print("Ticket Y position set to", ticketLineY)
 
     if !successfulSnap:
         # If not successfully snapped to any area, return to original position
         position = original_position
-        print("Ticket returned to original position")
+        # print("Ticket returned to original position")
 
 func _on_ticket_area_2d_area_entered(area: Area2D) -> void:
     # add the area to the list of touched areas
     areasTouched.append(area.name)
     if area.name == "LineArea2D":
-        print("Ticket area entered")
+        # print("Ticket area entered")
         animationPlayer.play("shrink_smaller")
         scale = Vector2(1, 1)
     else:
-        print("Ticket area not entered")
+        # print("Ticket area not entered")
 
 func _on_ticket_area_2d_area_exited(area: Area2D) -> void:
     # remove the area from the list of touched areas
     areasTouched.erase(area.name)
     match area.name:
         "LineArea2D":
-            print("Ticket area exited")
+            # print("Ticket area exited")
             animationPlayer.play("grow_smaller")
         "LineHookArea2D":
             if !dragging:
-                print("Ticket area exited")
+                # print("Ticket area exited")
                 animationPlayer.play("shrink")
         _:
-            print("Ticket area not exited")
+            # print("Ticket area not exited")
