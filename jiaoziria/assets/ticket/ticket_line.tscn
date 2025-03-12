@@ -20,18 +20,17 @@ size = Vector2(397, 151)
 radius = 159.452
 
 [node name="TicketLine" type="Node2D"]
-position = Vector2(0, 59)
 script = ExtResource("1_ncm17")
 
 [node name="LineArea2D" type="Area2D" parent="."]
-position = Vector2(0, -150)
+position = Vector2(0.0349731, -91)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LineArea2D"]
 position = Vector2(761.5, 166.5)
 shape = SubResource("RectangleShape2D_ncm17")
 
 [node name="TicketLine" type="Sprite2D" parent="."]
-position = Vector2(761, -20)
+position = Vector2(761.035, 39)
 scale = Vector2(1.01, 1)
 texture = ExtResource("1_g136u")
 
@@ -42,7 +41,7 @@ position = Vector2(-10.8384, 11)
 shape = SubResource("RectangleShape2D_8ssiu")
 
 [node name="LineHookBg" type="Sprite2D" parent="."]
-position = Vector2(1682, -20)
+position = Vector2(1682.03, 39)
 texture = ExtResource("2_ncm17")
 offset = Vector2(47, 0)
 
