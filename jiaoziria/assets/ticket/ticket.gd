@@ -2,7 +2,6 @@ extends Node2D
 
 @export_group("Ticket Info")
 @export var ticketID: int = 0
-@export var ticketIdentifier: String = ""
 
 @export_group("Filling")
 @export var filling1: FillingType = FillingType.PORK
@@ -77,7 +76,7 @@ enum ImageType {
 }
 
 func _get_image_path(filling: FillingType, imageType: ImageType) -> String:
-    return "res://assets/fillings/%s/%s.png" % [FillingType.keys()[filling], ImageType.keys()[imageType]]
+    return "res://assets/fillings/%s/%s.png" % [FillingType.keys()[filling].to_lower(), ImageType.keys()[imageType].to_lower()]
 
 func _set_filling_on_ticket(filling: FillingType, fillingNumber: int):
     # find the filling node and set the texture to the filling type
@@ -250,11 +249,6 @@ func set_ticket_info(ticket_info):
 func _ready():
     var ticketIDLabel = $TicketID
     ticketIDLabel.text = "HC" + str(ticketID)
-    if ticketIdentifier == "":
-        # warning: ticketIdentifier is empty
-        print("Warning: ticketIdentifier is empty!")
-    else:
-        print("Ticket identifier: ", ticketIdentifier)
     ticketButton.set_process_input(false)
     ticketButton.set_process(false)
     original_position = position
@@ -323,7 +317,7 @@ func _on_ticket_area_2d_area_entered(area: Area2D) -> void:
         # print("Ticket area entered")
         animationPlayer.play("shrink_smaller")
         scale = Vector2(1, 1)
-    else:
+    # else:
         # print("Ticket area not entered")
 
 func _on_ticket_area_2d_area_exited(area: Area2D) -> void:
@@ -337,5 +331,5 @@ func _on_ticket_area_2d_area_exited(area: Area2D) -> void:
             if !dragging:
                 # print("Ticket area exited")
                 animationPlayer.play("shrink")
-        _:
+        # _:
             # print("Ticket area not exited")
