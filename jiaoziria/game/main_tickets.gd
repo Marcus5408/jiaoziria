@@ -61,7 +61,7 @@ func spawn_ticket():
         "filling2": available_fillings[randi() % available_fillings.size()],
         "cookingMethod": available_cooking[randi() % (available_cooking.size() - 1)],
         "sauce1": {
-            "base": available_bases[randi() % (available_bases.size())],
+            "base": available_bases[randi() % (available_bases.size() -1 )],
             "addition1": available_additions[randi() % available_additions.size()],
             "addition2": available_additions[randi() % available_additions.size()],
             "addition3": available_additions[randi() % available_additions.size()],

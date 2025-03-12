@@ -244,7 +244,6 @@ func set_ticket_info(ticket_info):
     sauce3Addition1 = ticket_info.sauce3.addition1
     sauce3Addition2 = ticket_info.sauce3.addition2
     sauce3Addition3 = ticket_info.sauce3.addition3
-    _ready()  # Call _ready to update the visuals
 
 func _ready():
     var ticketIDLabel = $TicketID
