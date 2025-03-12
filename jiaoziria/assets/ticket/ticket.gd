@@ -228,6 +228,25 @@ func _set_sauce_addition(sauceNumber: int, additionNumber: int, addition: SauceA
     else:
         printerr("Invalid sauce addition passed to Ticket: ", SauceAddition.keys()[addition])
 
+func set_ticket_info(ticket_info):
+    ticketID = ticket_info.ticketID
+    filling1 = ticket_info.filling1
+    filling2 = ticket_info.filling2
+    cookingMethod = ticket_info.cookingMethod
+    sauce1Base = ticket_info.sauce1.base
+    sauce1Addition1 = ticket_info.sauce1.addition1
+    sauce1Addition2 = ticket_info.sauce1.addition2
+    sauce1Addition3 = ticket_info.sauce1.addition3
+    sauce2Base = ticket_info.sauce2.base
+    sauce2Addition1 = ticket_info.sauce2.addition1
+    sauce2Addition2 = ticket_info.sauce2.addition2
+    sauce2Addition3 = ticket_info.sauce2.addition3
+    sauce3Base = ticket_info.sauce3.base
+    sauce3Addition1 = ticket_info.sauce3.addition1
+    sauce3Addition2 = ticket_info.sauce3.addition2
+    sauce3Addition3 = ticket_info.sauce3.addition3
+    _ready()  # Call _ready to update the visuals
+
 func _ready():
     var ticketIDLabel = $TicketID
     ticketIDLabel.text = "HC" + str(ticketID)
@@ -258,8 +277,8 @@ var original_position = Vector2(960, 540)  # Default position
 @onready var ticketButton = $TextureButton
 @onready var animationPlayer = $AnimationPlayer
 var areasTouched = []
-var ticketLineY = 58
-var lineHookCoords = Vector2(1665, ticketLineY)  # Set this to the desired coordinates
+var ticketLineY = 38
+var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coordinates
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():
