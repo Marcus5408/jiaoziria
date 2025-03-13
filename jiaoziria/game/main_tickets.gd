@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 const Ticket = preload("res://assets/ticket/ticket.tscn")
 
@@ -84,4 +84,4 @@ func spawn_ticket():
     ticket.set_ticket_info(new_ticket_info)
     ticket.position = Vector2(120, ticket.ticketLineY)
     ticketsList.append(new_ticket_info)
-    add_child(ticket)
+    self.add_child(ticket)

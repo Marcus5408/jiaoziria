@@ -275,6 +275,7 @@ var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coord
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():
+    print("Down")
     dragging = true
     drag_offset = get_global_mouse_position() - position
     # print("Ticket pressed, dragging started")
@@ -285,6 +286,7 @@ func _process(_delta):
 
 # when mouse released
 func _on_texture_button_button_up():
+    print("Up")
     dragging = false
     # print("Ticket released, dragging stopped")
     var successfulSnap = false

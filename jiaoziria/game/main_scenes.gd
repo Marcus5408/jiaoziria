@@ -7,13 +7,10 @@ var scene_index = {
     "sauce": 3,
 }
 var station_width = 1920
-@onready var ticketLine = $TicketLine
-@onready var stationSwitcher = $StationsSwitcher
-@onready var stationNode = $StationsContainer
 
 func _ready():
     print("Hello, world!")
-    stationNode.set("separation", station_width)
+    self.set("separation", station_width)
 
 func _set_new_station(station_name: String) -> void:
     print("Station name is " + station_name)
@@ -21,7 +18,7 @@ func _set_new_station(station_name: String) -> void:
     if not station_name in scene_index:
         printerr("Station name not in scene_index, resetting")
         station_name = "order"
-    stationNode.position = Vector2( - (station_width * scene_index[station_name]), 0)
+    self.position = Vector2( - (station_width * scene_index[station_name]), 0)
 
 func _on_station_changed_to_order() -> void:
     _set_new_station("order")
