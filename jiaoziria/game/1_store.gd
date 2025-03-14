@@ -47,7 +47,7 @@ func _on_sauce_pressed() -> void:
 func _on_timer_timeout() -> void:
     # spawn a new customer
     if store_open:
-        var customer_scene = preload("res://game/customer/customer.tscn")
+        var customer_scene = preload("res://assets/customer/customer.tscn")
         var customer_instance = customer_scene.instance()
         add_child(customer_instance)
         print("Spawning a new customer")

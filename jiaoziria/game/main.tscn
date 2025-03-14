@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://oqh0lxyrffvy"]
+[gd_scene load_steps=12 format=3 uid="uid://oqh0lxyrffvy"]
 
+[ext_resource type="Script" uid="uid://dvm0oqjqpt6lp" path="res://game/main.gd" id="1_itumj"]
 [ext_resource type="Script" uid="uid://dbwuiu755nisx" path="res://game/main_tickets.gd" id="1_xkbyp"]
 [ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-store.tscn" id="2_emt18"]
 [ext_resource type="Script" uid="uid://bk58c77i466m8" path="res://game/main_scenes.gd" id="2_lx3aj"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook.tscn" id="5_dgpao"]
 [ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://game/station-switcher/stations.tscn" id="7_wjctj"]
+[ext_resource type="Script" uid="uid://dkjy3eug87m6e" path="res://game/main_customers.gd" id="8_dp3pf"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -18,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_itumj")
 
 [node name="StationsContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -44,6 +47,9 @@ layout_mode = 2
 
 [node name="SauceStation" parent="StationsContainer" instance=ExtResource("6_wjctj")]
 layout_mode = 2
+
+[node name="CustomerLayer" type="Node2D" parent="."]
+script = ExtResource("8_dp3pf")
 
 [node name="TicketLayer" type="Node2D" parent="."]
 script = ExtResource("1_xkbyp")
