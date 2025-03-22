@@ -56,13 +56,8 @@ func _on_store_timer_timeout() -> void:
     close_store()
     print("Store is closed")
 
-func _on_main_add_new_customer(new_customer_data: Variant) -> void:
-    # add the new customer to the store
-    customer_count += 1
-    # add the characterResource.asset to the store
-    var customer_scene = new_customer_data.characterResource.asset
-    var customer_instance = customer_scene.instantiate()
+func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
+    var asset = new_customer_data.characterResource.asset
+    var customer_instance = asset.instantiate()
     add_child(customer_instance)
-    customer_instance.position = Vector2(0, -328)
-    customer_instance.scale = Vector2(0.5, 0.5)
-    print("Added new customer to store: ", new_customer_data.characterResource.name)
+    customer_instance.position = Vector2(400 + (110 * (Main.globalCustomerCount - 2)), 1080)

@@ -61,6 +61,7 @@ script = ExtResource("1_xkbyp")
 [node name="StationsSwitcher" parent="." instance=ExtResource("7_wjctj")]
 layout_mode = 1
 
+[connection signal="add_new_customer" from="StationsContainer/OrderStation" to="StationsContainer/OrderStation/StoreView" method="_on_order_station_add_new_customer"]
 [connection signal="add_new_customer" from="StationsContainer/OrderStation" to="TicketLayer" method="_on_order_station_add_new_customer"]
 [connection signal="station_changed_to_cook" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_cook"]
 [connection signal="station_changed_to_order" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_order"]
