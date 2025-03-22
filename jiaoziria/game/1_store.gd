@@ -60,4 +60,4 @@ func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
     var asset = new_customer_data.characterResource.asset
     var customer_instance = asset.instantiate()
     add_child(customer_instance)
-    customer_instance.position = Vector2(400 + (110 * (Main.globalCustomerCount - 2)), 1080)
+    customer_instance.position = Vector2(400 + (110 * (Main.globalCustomerCount - 2)), 1000)
