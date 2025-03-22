@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://oqh0lxyrffvy"]
+[gd_scene load_steps=13 format=3 uid="uid://oqh0lxyrffvy"]
 
 [ext_resource type="Script" uid="uid://dvm0oqjqpt6lp" path="res://game/main.gd" id="1_itumj"]
 [ext_resource type="Script" uid="uid://dbwuiu755nisx" path="res://game/main_tickets.gd" id="1_xkbyp"]
 [ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-store.tscn" id="2_emt18"]
 [ext_resource type="Script" uid="uid://bk58c77i466m8" path="res://game/main_scenes.gd" id="2_lx3aj"]
 [ext_resource type="PackedScene" uid="uid://mlmn8xey5iy5" path="res://assets/ticket/ticket_line.tscn" id="3_emt18"]
+[ext_resource type="Script" uid="uid://dfqd0fwwj5j7s" path="res://game/order_station.gd" id="3_ioaqv"]
 [ext_resource type="PackedScene" uid="uid://dp8r6taqpl7es" path="res://game/1-customer.tscn" id="3_xkbyp"]
 [ext_resource type="PackedScene" uid="uid://xsvmyhmey26i" path="res://game/2-prep.tscn" id="4_vop5m"]
 [ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook.tscn" id="5_dgpao"]
@@ -32,6 +33,7 @@ script = ExtResource("2_lx3aj")
 [node name="OrderStation" type="VBoxContainer" parent="StationsContainer"]
 layout_mode = 2
 theme_override_constants/separation = 1080
+script = ExtResource("3_ioaqv")
 
 [node name="StoreView" parent="StationsContainer/OrderStation" instance=ExtResource("2_emt18")]
 layout_mode = 2
@@ -59,6 +61,7 @@ script = ExtResource("1_xkbyp")
 [node name="StationsSwitcher" parent="." instance=ExtResource("7_wjctj")]
 layout_mode = 1
 
+[connection signal="add_new_customer" from="StationsContainer/OrderStation" to="TicketLayer" method="_on_order_station_add_new_customer"]
 [connection signal="station_changed_to_cook" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_cook"]
 [connection signal="station_changed_to_order" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_order"]
 [connection signal="station_changed_to_prep" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_prep"]

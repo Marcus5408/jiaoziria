@@ -2,4 +2,5 @@
 
 ## TODO
 
-- [ ] Fix scene switching (finite state machine?)
+- [X] Fix scene switching (finite state machine?)
+- 
