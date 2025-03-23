@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://din3gmy0rdvgk"]
+[gd_scene load_steps=3 format=3 uid="uid://din3gmy0rdvgk"]
 
+[ext_resource type="Script" uid="uid://w3qp4xm253mp" path="res://assets/customer/customerNode.gd" id="1_5tllp"]
 [ext_resource type="Texture2D" uid="uid://cs0gpddr7umwe" path="res://assets/character.svg" id="2_f7asb"]
 
-[node name="Node2D" type="Node2D"]
+[node name="CustomerNode" type="Node2D"]
+script = ExtResource("1_5tllp")
 
 [node name="Customer" type="Sprite2D" parent="."]
 position = Vector2(0, -262)
@@ -23,3 +25,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "GET
 ORDER"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

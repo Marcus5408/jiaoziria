@@ -1,4 +1,4 @@
-class_name Character
+class_name CharacterData
 extends Resource
 
 @export var id: int = 0

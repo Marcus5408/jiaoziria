@@ -25,7 +25,7 @@ func _input(event):
 
 func add_random_customer(): 
     # set the character data (pick randomly)
-    var temp_new_character = Character.new()
+    var temp_new_character = CharacterData.new()
     # set to random character
     var random_character = randi() % possibleCustomersCount
     temp_new_character.id = possibleCustomers[random_character]["id"]
@@ -39,7 +39,7 @@ func add_random_customer():
     temp_new_order.ownerID = Main.globalCustomerCount
 
     var temp_new_customer = CustomerData.new()
-    temp_new_customer.id = Main.globalCustomerCount
+    temp_new_customer.characterResource.id = Main.globalCustomerCount
     temp_new_customer.characterResource = temp_new_character
     temp_new_customer.order = temp_new_order
 
