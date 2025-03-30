@@ -52,11 +52,9 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant
     # move self up 1080 pixels
     self.position.y -= 1080
     # put the customer in the center of the customerView
-    print_tree()
-    # var customerView = get_node("StoreView/" + customerName)
-    # var customerAsset = customerNodeData.characterResource.asset
-    # customerView.add_child(customerAsset.instantiate())
-    # # hide get order button from the customerAsset
-    # var customerAssetNode = customerView.get_child(0)
-    # print(customerAssetNode)
-    # customerAssetNode.get_child(0).hide()
+    var customerView = get_node("StoreView/" + customerName)
+    var customerAsset = customerNodeData.characterResource.asset
+    customerView.add_child(customerAsset.instantiate())
+    # hide get order button from the customerAsset
+    var customerAssetNode = customerView.get_node("CustomerNode")
+    customerAssetNode.get_node("Button").hide()
