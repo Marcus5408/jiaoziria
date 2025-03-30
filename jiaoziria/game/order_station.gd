@@ -2,7 +2,7 @@ extends VBoxContainer
 
 signal add_new_customer(new_customer_data)
 
-var CustomerScript = preload("res://assets/customer/customer.gd")
+var CustomerDataScript = preload("res://assets/customer/customer.gd")
 const possibleCustomers = [
     {"id": 0, "name": "Alice", "picky": 0},
     {"id": 1, "name": "Bob", "picky": 0},
@@ -23,7 +23,7 @@ func _input(event):
         print("Added new customer: ", temp_new_customer.characterResource.name)
         emit_signal("add_new_customer", temp_new_customer)
 
-func add_random_customer(): 
+func add_random_customer():
     # set the character data (pick randomly)
     var temp_new_character = CharacterData.new()
     # set to random character
@@ -46,3 +46,17 @@ func add_random_customer():
     # add the customer to the global customer data
     Main.globalCustomerData[Main.globalCustomerCount] = temp_new_customer
     return temp_new_customer
+
+
+func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant, customerName: String) -> void:
+    # move self up 1080 pixels
+    self.position.y -= 1080
+    # put the customer in the center of the customerView
+    print_tree()
+    # var customerView = get_node("StoreView/" + customerName)
+    # var customerAsset = customerNodeData.characterResource.asset
+    # customerView.add_child(customerAsset.instantiate())
+    # # hide get order button from the customerAsset
+    # var customerAssetNode = customerView.get_child(0)
+    # print(customerAssetNode)
+    # customerAssetNode.get_child(0).hide()

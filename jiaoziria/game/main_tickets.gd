@@ -53,7 +53,3 @@ func spawn_ticket(ticket_info: OrderData):
     ticket.position = Vector2(120, ticket.ticketLineY)
     ticketsList.append(ticket_info)
     add_child(ticket)
-
-func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
-    spawn_ticket(new_customer_data.order)
-    print("Spawned ticket for ", new_customer_data.characterResource.name)

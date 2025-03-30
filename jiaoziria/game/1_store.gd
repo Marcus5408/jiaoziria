@@ -28,22 +28,6 @@ func close_store():
     store_open = false
     customer_timer.stop()
 
-func _on_order_pressed():
-    print("Order button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/1-order.tscn")
-
-func _on_prepare_pressed() -> void:
-    print("Prep button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/2-prep.tscn")
-
-func _on_cook_pressed() -> void:
-    print("Cook button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/3-cook.tscn")
-
-func _on_sauce_pressed() -> void:
-    print("Sauce button pressed, attempting to change scene")
-    get_tree().change_scene_to_file("res://game/4-sauce.tscn")
-
 func _on_timer_timeout() -> void:
     # spawn a new customer
     if store_open:
@@ -59,5 +43,16 @@ func _on_store_timer_timeout() -> void:
 func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
     var asset = new_customer_data.characterResource.asset
     var customer_instance = asset.instantiate()
+    customer_instance.customerNodeData = new_customer_data
     add_child(customer_instance)
+    customer_instance.name = "Customer" + str(new_customer_data.characterResource.id)
+    # connect to the button pressed signal
+    customer_instance.take_order_button_pressed.connect(
+        func(customerData, customerName): _on_customer_take_order_button_pressed(customerData, customerName)
+    )
     customer_instance.position = Vector2(400 + (110 * (Main.globalCustomerCount - 2)), 1000)
+
+signal customer_take_order_button_pressed(customerNodeData: Variant, customerName: String)
+
+func _on_customer_take_order_button_pressed(customerNodeData: Variant, customerName: String) -> void:
+    emit_signal("customer_take_order_button_pressed", customerNodeData, customerName)

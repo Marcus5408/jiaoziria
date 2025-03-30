@@ -5,9 +5,4 @@ func _input(event):
         spawn_random_customer()
 
 func spawn_random_customer():
-    Main.globalCustomerCount += 1
-    var new_customer = {
-        "id" = Main.globalCustomerCount,
-        
-    }
     return
