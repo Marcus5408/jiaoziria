@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dfqd0fwwj5j7s" path="res://game/1-order-station/order_station.gd" id="3_ioaqv"]
 [ext_resource type="PackedScene" uid="uid://dp8r6taqpl7es" path="res://game/1-order-station/1-customer.tscn" id="3_xkbyp"]
 [ext_resource type="PackedScene" uid="uid://xsvmyhmey26i" path="res://game/2-prep-station/2-prep.tscn" id="4_vop5m"]
-[ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-prep-station/3-cook.tscn" id="5_dgpao"]
+[ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook-station/3-cook.tscn" id="5_dgpao"]
 [ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce-station/4-sauce.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://assets/station-switcher/stations.tscn" id="7_wjctj"]
 [ext_resource type="Script" uid="uid://dkjy3eug87m6e" path="res://game/main-scene/main_customers.gd" id="8_dp3pf"]

@@ -50,7 +50,7 @@ func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
     customer_instance.take_order_button_pressed.connect(
         func(customerData, customerName): _on_customer_take_order_button_pressed(customerData, customerName)
     )
-    customer_instance.position = Vector2(400 + (110 * (Main.globalCustomerCount - 2)), 1000)
+    customer_instance.position = Vector2(600 + (220 * (Main.globalCustomerCount - 2)), 1000)
 
 signal customer_take_order_button_pressed(customerNodeData: Variant, customerName: String)
 
