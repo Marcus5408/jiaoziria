@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://xsvmyhmey26i"]
 
-[ext_resource type="Script" uid="uid://dm0sj4i8i3eyt" path="res://game/2_prep.gd" id="1_i0f2h"]
+[ext_resource type="Script" uid="uid://dm0sj4i8i3eyt" path="res://game/2-prep-station/2_prep.gd" id="1_i0f2h"]
 [ext_resource type="Texture2D" uid="uid://bgoyi4ogo8d8p" path="res://assets/prep/prep_station.svg" id="1_tpu8i"]
 [ext_resource type="PackedScene" uid="uid://cfdab5rtdwbfn" path="res://assets/prep/dumpling_skin.tscn" id="4_i0f2h"]
 

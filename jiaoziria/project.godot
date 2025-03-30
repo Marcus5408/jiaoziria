@@ -20,7 +20,7 @@ config/icon="res://game/icon.svg"
 [autoload]
 
 LokGlobalStorageManager="*res://addons/locker/scripts/storage_manager/global_storage_manager.gd"
-Main="*res://game/main.gd"
+Main="*res://game/main-scene/main.gd"
 
 [display]
 
