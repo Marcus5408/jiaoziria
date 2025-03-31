@@ -12,5 +12,6 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant,
     var customerAssetNode = get_node("CustomerNode")
     customerAssetNode.get_node("Button").hide()
 
-func _process(delta):
-    pass
+    # start a timer
+    var timer = Timer.new()
+    timer.wait_time = 5.0

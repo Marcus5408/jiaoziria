@@ -2,7 +2,7 @@ extends VBoxContainer
 
 signal add_new_customer(new_customer_data)
 
-var CustomerDataScript = preload("res://assets/customer/customer.gd")
+var customerDetailsScript = preload("res://assets/customer/customer.gd")
 const possibleCustomers = [
     {"id": 0, "name": "Alice", "picky": 0},
     {"id": 1, "name": "Bob", "picky": 0},
@@ -38,13 +38,13 @@ func add_random_customer():
     temp_new_order.ticketID = Main.globalTicketID
     temp_new_order.ownerID = Main.globalCustomerCount
 
-    var temp_new_customer = CustomerData.new()
+    var temp_new_customer = customerDetails.new()
     temp_new_customer.characterResource.id = Main.globalCustomerCount
     temp_new_customer.characterResource = temp_new_character
     temp_new_customer.order = temp_new_order
 
     # add the customer to the global customer data
-    Main.globalCustomerData[Main.globalCustomerCount] = temp_new_customer
+    Main.globalcustomerDetails[Main.globalCustomerCount] = temp_new_customer
     return temp_new_customer
 
 

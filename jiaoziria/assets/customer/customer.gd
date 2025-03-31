@@ -1,4 +1,4 @@
-class_name CustomerData
+class_name customerDetails
 extends Resource
 
 enum CustomerStatus {
