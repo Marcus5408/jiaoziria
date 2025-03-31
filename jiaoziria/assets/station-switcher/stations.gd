@@ -16,3 +16,7 @@ func _on_cook_pressed() -> void:
 
 func _on_sauce_pressed() -> void:
     emit_signal("station_changed_to_sauce")
+
+
+func _on_store_view_customer_take_order_button_pressed(_customerNodeData:Variant, _customerName:String) -> void:
+    self.hide()

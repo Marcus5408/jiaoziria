@@ -54,10 +54,7 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant
     # put the customer in the center of the customerView
     var customerView = get_node("StoreView/" + customerName)
     var customerAsset = customerNodeData.characterResource.asset
-    print_tree()
     customerView.add_child(customerAsset.instantiate())
-    print("\n")
     # hide get order button from the customerAsset
-    print_tree()
     var customerAssetNode = customerView.get_node("CustomerNode")
     customerAssetNode.get_node("Button").hide()

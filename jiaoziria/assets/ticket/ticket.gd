@@ -11,30 +11,30 @@ enum ImageType {
 @export var ownerID: int = 0
 
 @export_group("Filling")
-@export var filling1: OrderData.FillingType = OrderData.FillingType.PORK
-@export var filling2: OrderData.FillingType = OrderData.FillingType.CABBAGE
+@export var filling1: OrderData.FillingType = OrderData.FillingType.NONE
+@export var filling2: OrderData.FillingType = OrderData.FillingType.NONE
 
 @export_group("Cooking")
 @export var cookingTime: int = 0
-@export var cookingMethod: OrderData.CookingMethod = OrderData.CookingMethod.BOIL
+@export var cookingMethod: OrderData.CookingMethod = OrderData.CookingMethod.NONE
 
 @export_group("Sauce 1")
-@export var sauce1Base: OrderData.SauceBase = OrderData.SauceBase.SOY_SAUCE
-@export var sauce1Addition1: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
-@export var sauce1Addition2: OrderData.SauceAddition = OrderData.SauceAddition.SCALLION
-@export var sauce1Addition3: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
+@export var sauce1Base: OrderData.SauceBase = OrderData.SauceBase.NONE
+@export var sauce1Addition1: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce1Addition2: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce1Addition3: OrderData.SauceAddition = OrderData.SauceAddition.NONE
 
 @export_group("Sauce 2")
-@export var sauce2Base: OrderData.SauceBase = OrderData.SauceBase.SOY_SAUCE
-@export var sauce2Addition1: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
-@export var sauce2Addition2: OrderData.SauceAddition = OrderData.SauceAddition.SCALLION
-@export var sauce2Addition3: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
+@export var sauce2Base: OrderData.SauceBase = OrderData.SauceBase.NONE
+@export var sauce2Addition1: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce2Addition2: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce2Addition3: OrderData.SauceAddition = OrderData.SauceAddition.NONE
 
 @export_group("Sauce 3")
-@export var sauce3Base: OrderData.SauceBase = OrderData.SauceBase.SOY_SAUCE
-@export var sauce3Addition1: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
-@export var sauce3Addition2: OrderData.SauceAddition = OrderData.SauceAddition.SCALLION
-@export var sauce3Addition3: OrderData.SauceAddition = OrderData.SauceAddition.GINGER
+@export var sauce3Base: OrderData.SauceBase = OrderData.SauceBase.NONE
+@export var sauce3Addition1: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce3Addition2: OrderData.SauceAddition = OrderData.SauceAddition.NONE
+@export var sauce3Addition3: OrderData.SauceAddition = OrderData.SauceAddition.NONE
 
 func _get_image_path(filling: OrderData.FillingType, imageType: ImageType) -> String:
     return "res://assets/fillings/%s/%s.png" % [OrderData.FillingType.keys()[filling].to_lower(), ImageType.keys()[imageType].to_lower()]
@@ -235,6 +235,9 @@ var original_position = Vector2(960, 540)  # Default position
 var areasTouched = []
 var ticketLineY = 38
 var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coordinates
+
+# Ticket Line Interactions
+# ------------------------
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():

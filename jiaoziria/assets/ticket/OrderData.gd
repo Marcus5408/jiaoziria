@@ -44,25 +44,25 @@ enum SauceAddition {
 @export var ticketID: int = 0
 @export var ownerID: int = 0
 @export var fillings: Array = [
-    FillingType.PORK,
-    FillingType.CABBAGE
+    FillingType.NONE,
+    FillingType.NONE
 ]
 @export var cookingTime: int = 0
 @export var cookingMethod: CookingMethod = CookingMethod.NONE
 @export var sauce1: Dictionary = {
-    "base": SauceBase.SOY_SAUCE,
+    "base": SauceBase.NONE,
     "addition1": SauceAddition.NONE,
     "addition2": SauceAddition.NONE,
     "addition3": SauceAddition.NONE,
 }
 @export var sauce2: Dictionary = {
-    "base": SauceBase.SOY_SAUCE,
+    "base": SauceBase.NONE,
     "addition1": SauceAddition.NONE,
     "addition2": SauceAddition.NONE,
     "addition3": SauceAddition.NONE,
 }
 @export var sauce3: Dictionary = {
-    "base": SauceBase.SOY_SAUCE,
+    "base": SauceBase.NONE,
     "addition1": SauceAddition.NONE,
     "addition2": SauceAddition.NONE,
     "addition3": SauceAddition.NONE,

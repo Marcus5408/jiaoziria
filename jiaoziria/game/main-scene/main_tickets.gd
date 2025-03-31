@@ -53,3 +53,28 @@ func spawn_ticket(ticket_info: OrderData):
     ticket.position = Vector2(120, ticket.ticketLineY)
     ticketsList.append(ticket_info)
     add_child(ticket)
+
+func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant, _customerName:String) -> void:
+    # hide everything except $TicketLine
+    var childNodes = get_children()
+    for child in childNodes:
+        if child.name != "TicketLine":
+            child.hide()
+    
+    # add new ticket to the ticket line using the customerNodeData
+    var ticket = Ticket.instantiate()
+    var lineHookPosition = get_node("TicketLine/LineHookBg/").position
+    print("New position: ", lineHookPosition)
+    ticket.position = lineHookPosition
+    ticket.scale = Vector2(1.5, 1.5)
+    ticketsList.append(customerNodeData.order)
+    # assign basic ticket info, like ticketID and ownerID
+    ticket.ticketID = customerNodeData.order.ticketID
+    ticket.ownerID = customerNodeData.order.ownerID
+    add_child(ticket)
+    get_node("Ticket/Filling1Base").hide()
+    get_node("Ticket/Filling2Base").hide()
+    get_node("Ticket/Filling1Icon").hide()
+    get_node("Ticket/Filling2Icon").hide()
+    get_node("Ticket/ClockBase").hide()
+    get_node("Ticket/CookingMethod").hide()
