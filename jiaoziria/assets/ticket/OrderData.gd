@@ -71,8 +71,6 @@ enum SauceAddition {
 static func create() -> OrderData:
     var available_fillings = FillingType.values()
     var available_cooking = CookingMethod.values()
-    var available_bases = SauceBase.values()
-    var available_additions = SauceAddition.values()
 
     var new_ticket_info = OrderData.new()
     new_ticket_info.ticketID = 0
@@ -81,25 +79,34 @@ static func create() -> OrderData:
         available_fillings[randi() % (available_fillings.size() - 1)],
         available_fillings[randi() % available_fillings.size()],
     ]
-    new_ticket_info.cookingTime = randi() % 8 # random cooking time between 1 and 10
+    new_ticket_info.cookingTime = randi() % 8  # random cooking time between 1 and 10
     new_ticket_info.cookingMethod = available_cooking[randi() % (available_cooking.size() - 1)]
-    
-    new_ticket_info.sauce1 = {
-        "base": available_bases[randi() % (available_bases.size() -1 )],
-        "addition1": available_additions[randi() % available_additions.size()],
-        "addition2": available_additions[randi() % available_additions.size()],
-        "addition3": available_additions[randi() % available_additions.size()],
-    }
-    new_ticket_info.sauce2 = {
-        "base": available_bases[randi() % (available_bases.size())],
-        "addition1": available_additions[randi() % available_additions.size()],
-        "addition2": available_additions[randi() % available_additions.size()],
-        "addition3": available_additions[randi() % available_additions.size()],
-    }
-    new_ticket_info.sauce3 = {
-        "base": available_bases[randi() % (available_bases.size())],
-        "addition1": available_additions[randi() % available_additions.size()],
-        "addition2": available_additions[randi() % available_additions.size()],
-        "addition3": available_additions[randi() % available_additions.size()],
-    }
+
+    # Generate sauces
+    new_ticket_info.sauce1 = generate_sauce(false)  # First sauce can't be NONE
+    new_ticket_info.sauce2 = generate_sauce(true)
+    new_ticket_info.sauce3 = generate_sauce(true)
+
     return new_ticket_info
+
+# Helper function to check if previous additions are NONE
+static func set_sauce_additions(base_value, prev_additions: Array) -> Array:
+    if base_value == SauceBase.NONE or prev_additions.has(SauceAddition.NONE):
+        return [SauceAddition.NONE, SauceAddition.NONE, SauceAddition.NONE]
+    return prev_additions
+
+# Helper function to generate a random sauce
+static func generate_sauce(allow_none: bool) -> Dictionary:
+    var available_bases = SauceBase.values()
+    var available_additions = SauceAddition.values()
+    var base = available_bases[randi() % (available_bases.size() - (1 if not allow_none else 0))]
+    var additions = []
+    for _i in range(3):
+        additions.append(available_additions[randi() % (available_additions.size() - 1)])
+    additions = set_sauce_additions(base, additions)
+    return {
+        "base": base,
+        "addition1": additions[0],
+        "addition2": additions[1],
+        "addition3": additions[2],
+    }

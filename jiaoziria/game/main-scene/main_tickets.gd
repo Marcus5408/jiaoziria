@@ -68,41 +68,40 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant,
     ticket.position = lineHookPosition
     ticket.scale = Vector2(1.5, 1.5)
     ticketsList.append(customerNodeData.order)
-    # assign basic ticket info, like ticketID and ownerID
-    ticket.ticketID = customerNodeData.order.ticketID
-    ticket.ownerID = customerNodeData.order.ownerID
+    # assign ticket info
+    ticket.set_ticket_info(customerNodeData.order)
     add_child(ticket)
-    get_node("Ticket/Filling1Base").hide()
-    get_node("Ticket/Filling2Base").hide()
-    get_node("Ticket/Filling1Icon").hide()
-    get_node("Ticket/Filling2Icon").hide()
-    get_node("Ticket/ClockBase").hide()
-    get_node("Ticket/CookingMethod").hide()
 
-    var order_data = customerNodeData.order
-
-    await get_tree().create_timer(0.5).timeout
-    # add fillings
-    ticket.filling1 = order_data.fillings[0]
-    get_node("Ticket/Filling1Base").show()
-    await get_tree().create_timer(0.5).timeout
-    ticket.filling2 = order_data.fillings[1]
-    get_node("Ticket/Filling2Base").show()
-    await get_tree().create_timer(0.5).timeout
-    # add cooking method
-    ticket.cookingMethod = order_data.cookingMethod
-    get_node("Ticket/CookingMethod").show()
-    await get_tree().create_timer(0.5).timeout
-    # add cooking time
-    ticket.cookingTime = order_data.cookingTime
-    get_node("Ticket/ClockBase").show()
-    await get_tree().create_timer(0.5).timeout
-    # add sauce1
+    var ticket_elements = [
+        ["Filling1Base", "Filling1Icon"], ["Filling2Base", "Filling2Icon"],
+        "CookingMethod", "ClockBase"
+    ]
+    # Hide elements
+    for element in ticket_elements:
+        if element is Array:
+            for subelement in element:
+                get_node("Ticket/" + subelement).hide()
+        else:
+            get_node("Ticket/" + element).hide()
     for i in range(1, 4):  # for sauces 1, 2, 3
-        var sauce = order_data.get("sauce" + str(i))
-        ticket.set("sauce%d" % i, sauce["base"])
-        await get_tree().create_timer(0.5).timeout
-        
+        var sauce_base = get_node("Ticket/Sauce" + str(i) + "Base")
+        sauce_base.hide()
         for j in range(1, 4):  # for additions 1, 2, 3
-            ticket.set("addition%d" % j, sauce["addition" + str(j)])
+            sauce_base.get_node("Sauce" + str(i) + "Add" + str(j)).hide()
+    
+    # slowly reveal elements
+    await get_tree().create_timer(0.5).timeout
+    for element in ticket_elements:
+        if element is Array:
+            for subelement in element:
+                get_node("Ticket/" + subelement).show()
+        else:
+            get_node("Ticket/" + element).show()
+        await get_tree().create_timer(0.5).timeout
+    for i in range(1, 4):  # for sauces 1, 2, 3
+        var sauce_base = get_node("Ticket/Sauce" + str(i) + "Base")
+        sauce_base.show()
+        await get_tree().create_timer(0.5).timeout
+        for j in range(1, 4):  # for additions 1, 2, 3
+            sauce_base.get_node("Sauce" + str(i) + "Add" + str(j)).show()
             await get_tree().create_timer(0.5).timeout
