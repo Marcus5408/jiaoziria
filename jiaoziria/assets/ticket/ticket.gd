@@ -120,9 +120,9 @@ func _set_cooking_method(method: OrderData.CookingMethod):
     if method in cookingMethodTextures:
         cookingMethodNode.texture = cookingMethodTextures[method]
     else:
-        print_debug("Invalid cooking method passed to Ticket: ", OrderData.CookingMethod.keys()[method])
+        print("Invalid cooking method passed to Ticket: ", OrderData.CookingMethod.keys()[method])
         if method == OrderData.CookingMethod.NONE:
-            print_debug("Tip: Cooking method is set to NONE, this should not happen. Perhaps you instantiated a ticket without a cooking method?")
+            print("Tip: Cooking method is set to NONE, this should not happen. Perhaps you instantiated a ticket without a cooking method?")
         return
     # print("Cooking method set to: ", cookingMethod)
 
@@ -146,8 +146,7 @@ func _set_sauce_base(number: int, sauceBase: OrderData.SauceBase):
         return
 
     if sauceBase == OrderData.SauceBase.NONE and number == 1:
-        printerr("Cannot set sauce 1 base to none!")
-        return
+        print("Sauce base 1 is NONE. This usually should not happen.")
 
     var sauce_colors = {
         OrderData.SauceBase.SOY_SAUCE: Color(0.5, 0.5, 1),
@@ -160,6 +159,7 @@ func _set_sauce_base(number: int, sauceBase: OrderData.SauceBase):
 
     if sauceBase in sauce_colors:
         sauceNode.modulate = sauce_colors[sauceBase]
+        print("Sauce base set to: ", OrderData.SauceBase.keys()[sauceBase])
     else:
         printerr("Invalid sauce base passed to Ticket: ", OrderData.SauceBase.keys()[sauceBase])
 
