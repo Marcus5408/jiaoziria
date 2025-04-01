@@ -120,9 +120,9 @@ func _set_cooking_method(method: OrderData.CookingMethod):
     if method in cookingMethodTextures:
         cookingMethodNode.texture = cookingMethodTextures[method]
     else:
-        printerr("Invalid cooking method passed to Ticket: ", OrderData.CookingMethod.keys()[method])
+        print_debug("Invalid cooking method passed to Ticket: ", OrderData.CookingMethod.keys()[method])
         if method == OrderData.CookingMethod.NONE:
-            printerr("Tip: Cooking method is set to NONE, this should not happen. Perhaps you instantiated a ticket without a cooking method?")
+            print_debug("Tip: Cooking method is set to NONE, this should not happen. Perhaps you instantiated a ticket without a cooking method?")
         return
     # print("Cooking method set to: ", cookingMethod)
 
@@ -236,8 +236,9 @@ var areasTouched = []
 var ticketLineY = 38
 var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coordinates
 
-# Ticket Line Interactions
-# ------------------------
+# ----------------------------
+#   Ticket Line Interactions
+# ----------------------------
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():
