@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oqh0lxyrffvy"]
+[gd_scene load_steps=15 format=3 uid="uid://oqh0lxyrffvy"]
 
 [ext_resource type="Script" uid="uid://dvm0oqjqpt6lp" path="res://game/main-scene/main.gd" id="1_itumj"]
 [ext_resource type="Script" uid="uid://dbwuiu755nisx" path="res://game/main-scene/main_tickets.gd" id="1_xkbyp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce-station/4-sauce.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://assets/station-switcher/stations.tscn" id="7_wjctj"]
 [ext_resource type="Script" uid="uid://dkjy3eug87m6e" path="res://game/main-scene/main_customers.gd" id="8_dp3pf"]
+[ext_resource type="PackedScene" uid="uid://dr00h06swieip" path="res://assets/dip_transition/dip_transition.tscn" id="14_0jgmq"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -62,6 +63,8 @@ script = ExtResource("1_xkbyp")
 
 [node name="StationsSwitcher" parent="." instance=ExtResource("7_wjctj")]
 layout_mode = 1
+
+[node name="DipTransition" parent="." instance=ExtResource("14_0jgmq")]
 
 [connection signal="add_new_customer" from="StationsContainer/OrderStation" to="StationsContainer/OrderStation/StoreView" method="_on_order_station_add_new_customer"]
 [connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsContainer/OrderStation" method="_on_store_view_customer_take_order_button_pressed"]
