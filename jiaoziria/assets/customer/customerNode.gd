@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var customerNodeData: customerDetails
+@export var customerNodeData: CustomerDetails
 
 signal take_order_button_pressed(customerNodeData: Variant, customerName: String)
 
