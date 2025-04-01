@@ -38,7 +38,7 @@ func add_random_customer():
     temp_new_order.ticketID = Main.globalTicketID
     temp_new_order.ownerID = Main.globalCustomerCount
 
-    var temp_new_customer = customerDetails.new()
+    var temp_new_customer = customerDetailsScript.new()
     temp_new_customer.characterResource.id = Main.globalCustomerCount
     temp_new_customer.characterResource = temp_new_character
     temp_new_customer.order = temp_new_order
