@@ -15,7 +15,8 @@ config/description="As a new employee at Mama's Jiaoziria, you’ll learn to cra
 config/version="0.1.0"
 run/main_scene="uid://oqh0lxyrffvy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://game/icon.svg"
+config/icon="uid://c015ulc7u4slk"
+config/macos_native_icon="res://game/app-icons/Jiaoziria.icns"
 
 [autoload]
 
