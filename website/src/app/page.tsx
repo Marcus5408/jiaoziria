@@ -16,10 +16,9 @@ export default async function Home() {
           <p>
             Here&apos;s the video the redirect <i>SHOULD</i> have take you to:
           </p>
-          {"Iframe embed"}
           <iframe
-            width="560"
-            height="315"
+            width="1280"
+            height="720"
             src={
               // generate the embed URL from the video URL
               videoURL.replace("youtu.be", "youtube.com/embed/")
