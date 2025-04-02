@@ -44,11 +44,13 @@ func add_random_customer():
     temp_new_customer.order = temp_new_order
 
     # add the customer to the global customer data
-    Main.globalcustomerDetails[Main.globalCustomerCount] = temp_new_customer
+    Main.globalCustomerDetails[Main.globalCustomerCount] = temp_new_customer
     return temp_new_customer
 
 
 func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant, customerName: String) -> void:
+    Main.transitionState = Main.TransitionStates.DIP
+    await get_tree().create_timer(Main.transitionTimer).timeout
     # move self up 1080 pixels
     self.position.y -= 1080
     # put the customer in the center of the customerView
@@ -58,3 +60,15 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant
     # hide get order button from the customerAsset
     var customerAssetNode = customerView.get_node("CustomerNode")
     customerAssetNode.get_node("Button").hide()
+
+
+func _on_ticket_layer_order_taken(customerName: String) -> void:
+    self.position.y += 1080
+    var customerView = get_node("StoreView/" + customerName)
+    var customerAssetNode = customerView.get_node("CustomerNode")
+    customerAssetNode.position.y -= 60
+    # move backwards the customer id z position
+    customerAssetNode.z_index = -3
+
+    Main.transitionState = Main.TransitionStates.RISE
+    await get_tree().create_timer(Main.transitionTimer).timeout

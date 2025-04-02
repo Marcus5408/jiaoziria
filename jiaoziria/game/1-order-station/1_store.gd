@@ -45,6 +45,7 @@ func _on_order_station_add_new_customer(new_customer_data: Variant) -> void:
     var customer_instance = asset.instantiate()
     customer_instance.customerNodeData = new_customer_data
     add_child(customer_instance)
+    customer_instance.z_index = 2
     customer_instance.name = "Customer" + str(new_customer_data.characterResource.id)
     # connect to the button pressed signal
     customer_instance.take_order_button_pressed.connect(

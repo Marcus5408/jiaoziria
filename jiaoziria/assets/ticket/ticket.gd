@@ -224,6 +224,10 @@ func _ready():
             _set_sauce_addition(i, j, self.get("sauce%dAddition%d" % [i, j]))
     print("Ticket ready, ID: ", ticketID)
 
+# ----------------------------
+#   Ticket Line Interactions
+# ----------------------------
+
 # follow mouse when dragging
 var dragging = false
 var drag_offset = Vector2()
@@ -235,10 +239,6 @@ var original_position = Vector2(960, 540)  # Default position
 var areasTouched = []
 var ticketLineY = 38
 var lineHookCoords = Vector2(1680, ticketLineY)  # Set this to the desired coordinates
-
-# ----------------------------
-#   Ticket Line Interactions
-# ----------------------------
 
 # when mouse held down on the ticket
 func _on_texture_button_button_down():
@@ -262,40 +262,29 @@ func _on_texture_button_button_up():
         successfulSnap = true
         if scale < Vector2(1, 1):
             animationPlayer.play("grow")
-        # print("Ticket moved to target position")
     elif "TicketLineArea2D" in areasTouched:
         position.y = ticketLineY
         original_position = Vector2(position.x, ticketLineY)  # Update original position
         if scale > Vector2(1, 1):
             animationPlayer.play("shrink_smaller")
         successfulSnap = true
-        # print("Ticket Y position set to", ticketLineY)
 
     if !successfulSnap:
-        # If not successfully snapped to any area, return to original position
         position = original_position
-        # print("Ticket returned to original position")
 
 func _on_ticket_area_2d_area_entered(area: Area2D) -> void:
     # add the area to the list of touched areas
     areasTouched.append(area.name)
     if area.name == "LineArea2D":
-        # print("Ticket area entered")
         animationPlayer.play("shrink_smaller")
         scale = Vector2(1, 1)
-    # else:
-        # print("Ticket area not entered")
 
 func _on_ticket_area_2d_area_exited(area: Area2D) -> void:
     # remove the area from the list of touched areas
     areasTouched.erase(area.name)
     match area.name:
         "LineArea2D":
-            # print("Ticket area exited")
             animationPlayer.play("grow_smaller")
         "LineHookArea2D":
             if !dragging:
-                # print("Ticket area exited")
                 animationPlayer.play("shrink")
-        # _:
-            # print("Ticket area not exited")

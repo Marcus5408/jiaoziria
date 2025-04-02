@@ -54,7 +54,10 @@ func spawn_ticket(ticket_info: OrderData):
     ticketsList.append(ticket_info)
     add_child(ticket)
 
-func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant, _customerName:String) -> void:
+signal order_taken(customerName: String)
+func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant, customerName:String) -> void:
+    await get_tree().create_timer(1).timeout
+
     # hide everything except $TicketLine
     var childNodes = get_children()
     for child in childNodes:
@@ -89,6 +92,10 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant,
         for j in range(1, 4):  # for additions 1, 2, 3
             sauce_base.get_node("Sauce" + str(i) + "Add" + str(j)).hide()
     
+    # await DipTransitionScript.dip_from_black()
+    Main.transitionState = Main.TransitionStates.RISE
+    await get_tree().create_timer(Main.transitionTimer).timeout
+    
     # slowly reveal elements
     await get_tree().create_timer(0.5).timeout
     for element in ticket_elements:
@@ -100,8 +107,18 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant,
         await get_tree().create_timer(0.5).timeout
     for i in range(1, 4):  # for sauces 1, 2, 3
         var sauce_base = get_node("Ticket/Sauce" + str(i) + "Base")
+        if customerNodeData.order["sauce" + str(i)]["base"] == OrderData.SauceBase.NONE:
+            continue
         sauce_base.show()
         await get_tree().create_timer(0.5).timeout
         for j in range(1, 4):  # for additions 1, 2, 3
+            if customerNodeData.order["sauce" + str(i)]["addition" + str(j)] == OrderData.SauceAddition.NONE:
+                continue
             sauce_base.get_node("Sauce" + str(i) + "Add" + str(j)).show()
             await get_tree().create_timer(0.5).timeout
+    
+    await get_tree().create_timer(2).timeout # just some extra time to look at the ticket
+    # await DipTransitionScript.dip_to_black()
+    Main.transitionState = Main.TransitionStates.DIP
+    await get_tree().create_timer(Main.transitionTimer).timeout
+    emit_signal("order_taken", customerName)

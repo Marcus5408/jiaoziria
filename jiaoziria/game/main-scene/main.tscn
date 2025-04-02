@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://oqh0lxyrffvy"]
+[gd_scene load_steps=16 format=3 uid="uid://oqh0lxyrffvy"]
 
 [ext_resource type="Script" uid="uid://dvm0oqjqpt6lp" path="res://game/main-scene/main.gd" id="1_itumj"]
 [ext_resource type="Script" uid="uid://dbwuiu755nisx" path="res://game/main-scene/main_tickets.gd" id="1_xkbyp"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://assets/station-switcher/stations.tscn" id="7_wjctj"]
 [ext_resource type="Script" uid="uid://dkjy3eug87m6e" path="res://game/main-scene/main_customers.gd" id="8_dp3pf"]
 [ext_resource type="PackedScene" uid="uid://dr00h06swieip" path="res://assets/dip_transition/dip_transition.tscn" id="14_0jgmq"]
+[ext_resource type="Script" uid="uid://dqbe78q0mwdj3" path="res://assets/dip_transition/dip_transition.gd" id="15_82866"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -54,23 +55,30 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CustomerLayer" type="Node2D" parent="."]
+position = Vector2(0, 1)
 script = ExtResource("8_dp3pf")
 
 [node name="TicketLayer" type="Node2D" parent="."]
+z_index = 3
 script = ExtResource("1_xkbyp")
 
 [node name="TicketLine" parent="TicketLayer" instance=ExtResource("3_emt18")]
 
 [node name="StationsSwitcher" parent="." instance=ExtResource("7_wjctj")]
+z_index = 4
 layout_mode = 1
 
 [node name="DipTransition" parent="." instance=ExtResource("14_0jgmq")]
+visible = false
+z_index = 5
+script = ExtResource("15_82866")
 
 [connection signal="add_new_customer" from="StationsContainer/OrderStation" to="StationsContainer/OrderStation/StoreView" method="_on_order_station_add_new_customer"]
 [connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsContainer/OrderStation" method="_on_store_view_customer_take_order_button_pressed"]
 [connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsContainer/OrderStation/OrderView" method="_on_store_view_customer_take_order_button_pressed"]
 [connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="TicketLayer" method="_on_store_view_customer_take_order_button_pressed"]
 [connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsSwitcher" method="_on_store_view_customer_take_order_button_pressed"]
+[connection signal="order_taken" from="TicketLayer" to="StationsContainer/OrderStation" method="_on_ticket_layer_order_taken"]
 [connection signal="station_changed_to_cook" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_cook"]
 [connection signal="station_changed_to_order" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_order"]
 [connection signal="station_changed_to_prep" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_prep"]
