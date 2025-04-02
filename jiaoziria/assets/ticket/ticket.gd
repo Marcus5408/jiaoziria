@@ -50,51 +50,51 @@ func _set_filling_on_ticket(filling: OrderData.FillingType, fillingNumber: int):
     # set the modulate of the filling node to the correct color for that filling
     var filling_graphics = {
         OrderData.FillingType.PORK: {
-            "color": Color(1.0, 0.8353, 0.8431),
+            "color": Color(1, 0.8353, 0.8431),
             "image": _get_image_path(OrderData.FillingType.PORK, ImageType.ICON)
             },
         OrderData.FillingType.CABBAGE: {
-            "color": Color(0.5, 1, 0.5),
+            "color": Color(0.8549, 1.0, 0.7451),
             "image": _get_image_path(OrderData.FillingType.CABBAGE, ImageType.ICON)
             },
         OrderData.FillingType.SCALLION: {
-            "color": Color(0.5, 1, 0.5),
+            "color": Color(0.8039, 0.9333, 0.6392),
             "image": _get_image_path(OrderData.FillingType.SCALLION, ImageType.ICON)
             },
         OrderData.FillingType.CHIVE: {
-            "color": Color(0.5, 1, 0.5),
+            "color": Color(0.5961, 0.9255, 0.4314),
             "image": _get_image_path(OrderData.FillingType.CHIVE, ImageType.ICON)
             },
         OrderData.FillingType.SHRIMP: {
-            "color": Color(1, 0.5, 0.5),
+            "color": Color(1.0, 0.6627, 0.4941),
             "image": _get_image_path(OrderData.FillingType.SHRIMP, ImageType.ICON)
             },
         OrderData.FillingType.CHICKEN: {
-            "color": Color(1, 0.5, 0.5),
+            "color": Color(1.0, 0.5608, 0.4745),
             "image": _get_image_path(OrderData.FillingType.CHICKEN, ImageType.ICON)
             },
         OrderData.FillingType.MUSHROOM: {
-            "color": Color(0.5, 0.5, 1),
+            "color": Color(0.7294, 0.5412, 0.4471),
             "image": _get_image_path(OrderData.FillingType.MUSHROOM, ImageType.ICON)
             },
         OrderData.FillingType.BEEF: {
-            "color": Color(1, 0.5, 0.5),
+            "color": Color(0.4784, 0.4275, 0.4235),
             "image": _get_image_path(OrderData.FillingType.BEEF, ImageType.ICON)
             },
         OrderData.FillingType.TOFU: {
-            "color": Color(1, 1, 1),
+            "color": Color(0.7882, 0.6627, 0.4902),
             "image": _get_image_path(OrderData.FillingType.TOFU, ImageType.ICON)
             },
         OrderData.FillingType.KIMCHI: {
-            "color": Color(1, 0.5, 0.5),
+            "color": Color(1.0, 0.6157, 0.4745),
             "image": _get_image_path(OrderData.FillingType.KIMCHI, ImageType.ICON)
             },
         OrderData.FillingType.ORPHEUS: {
-            "color": Color(1, 0.5, 0.5),
+            "color": Color(0.6745, 0.8902, 1.0),
             "image": _get_image_path(OrderData.FillingType.ORPHEUS, ImageType.ICON)
             },
         OrderData.FillingType.NONE: {
-            "color": Color(1, 1, 1),
+            "color": Color(0.8784, 0.8784, 0.8784),
             "image": _get_image_path(OrderData.FillingType.NONE, ImageType.ICON)
             }
     }
