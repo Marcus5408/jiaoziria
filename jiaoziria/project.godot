@@ -17,6 +17,7 @@ run/main_scene="uid://oqh0lxyrffvy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c015ulc7u4slk"
 config/macos_native_icon="res://game/app-icons/Jiaoziria.icns"
+config/windows_native_icon="res://game/app-icons/windows.ico"
 
 [autoload]
 
