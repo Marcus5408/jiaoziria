@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://xsvmyhmey26i"]
 
 [ext_resource type="Script" uid="uid://dm0sj4i8i3eyt" path="res://game/2-prep-station/2_prep.gd" id="1_i0f2h"]
-[ext_resource type="Texture2D" uid="uid://bgoyi4ogo8d8p" path="res://assets/prep/prep_station.svg" id="1_tpu8i"]
+[ext_resource type="Texture2D" uid="uid://s7vgr2eq1gmb" path="res://assets/prep/prep.png" id="2_im0yf"]
 [ext_resource type="PackedScene" uid="uid://cfdab5rtdwbfn" path="res://assets/prep/dumpling_skin.tscn" id="4_i0f2h"]
 
 [node name="PrepStation" type="Control"]
@@ -15,7 +15,7 @@ script = ExtResource("1_i0f2h")
 
 [node name="PrepStation" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_tpu8i")
+texture = ExtResource("2_im0yf")
 
 [node name="DumplingSkin" parent="." instance=ExtResource("4_i0f2h")]
-position = Vector2(66, 685)
+position = Vector2(219, 781)
