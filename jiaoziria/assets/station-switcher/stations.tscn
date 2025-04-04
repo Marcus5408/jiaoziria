@@ -20,7 +20,7 @@ mouse_filter = 1
 script = ExtResource("1_rr033")
 
 [node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(-244, -78)
+position = Vector2(-244, -62)
 scale = Vector2(1.12442, 1)
 texture = ExtResource("2_63u0t")
 
@@ -31,14 +31,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -463.0
-offset_top = -125.0
-offset_right = 1795.0
-offset_bottom = 387.0
+offset_left = -462.0
+offset_top = -117.0
+offset_right = 1772.0
+offset_bottom = 395.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
-theme_override_constants/separation = 70
+theme_override_constants/separation = 62
 
 [node name="Order" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
