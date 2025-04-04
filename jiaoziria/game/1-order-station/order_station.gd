@@ -51,6 +51,10 @@ func add_random_customer():
 func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant, customerName: String) -> void:
     Main.transitionState = Main.TransitionStates.DIP
     await get_tree().create_timer(Main.transitionTimer).timeout
+    # find the customer that triggered this and revoke their ordering privileges
+    var customer = get_node("StoreView/Customer" + str(customerNodeData.characterResource.id))
+    var customerButton = customer.get_node("Button")
+    customerButton.hide()
     # move self up 1080 pixels
     self.position.y -= 1080
     # put the customer in the center of the customerView
