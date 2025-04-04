@@ -1,6 +1,6 @@
 extends Control
 
-func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant, customerName:String) -> void:
+func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant, _customerName:String) -> void:
     # instantiate the customer's asset
     # and add it to the scene tree
     var asset = customerNodeData.characterResource.asset
