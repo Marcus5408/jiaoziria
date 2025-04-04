@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c41m5pxoqmytx"]
+[gd_scene load_steps=7 format=3 uid="uid://c41m5pxoqmytx"]
 
 [ext_resource type="Script" uid="uid://cw3w2g4oond34" path="res://assets/station-switcher/stations.gd" id="1_rr033"]
+[ext_resource type="Texture2D" uid="uid://dv084w5cjrxca" path="res://assets/station-switcher/bg.png" id="2_63u0t"]
+[ext_resource type="Texture2D" uid="uid://3eq6sd7hke2a" path="res://assets/station-switcher/order.png" id="3_im1h5"]
+[ext_resource type="Texture2D" uid="uid://tr7304c40k47" path="res://assets/station-switcher/prep.png" id="4_lio7f"]
+[ext_resource type="Texture2D" uid="uid://cj0h76jfdy8sf" path="res://assets/station-switcher/cook.png" id="5_235l2"]
+[ext_resource type="Texture2D" uid="uid://8w30agm6xs0c" path="res://assets/station-switcher/sauce.png" id="6_s6w2y"]
 
 [node name="StationsSwitcher" type="Control"]
 layout_mode = 3
@@ -14,6 +19,11 @@ grow_vertical = 0
 mouse_filter = 1
 script = ExtResource("1_rr033")
 
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(-244, -78)
+scale = Vector2(1.12442, 1)
+texture = ExtResource("2_63u0t")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -21,34 +31,31 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -589.0
-offset_top = -76.0
-offset_right = -19.0
-offset_bottom = -19.0
+offset_left = -463.0
+offset_top = -125.0
+offset_right = 1795.0
+offset_bottom = 387.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/separation = 30
+scale = Vector2(0.2, 0.2)
+theme_override_constants/separation = 70
 
-[node name="Order" type="Button" parent="HBoxContainer"]
+[node name="Order" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Order"
+texture_normal = ExtResource("3_im1h5")
+stretch_mode = 0
 
-[node name="Prepare" type="Button" parent="HBoxContainer"]
+[node name="Prepare" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Prep
-"
+texture_normal = ExtResource("4_lio7f")
 
-[node name="Cook" type="Button" parent="HBoxContainer"]
+[node name="Cook" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Cook"
+texture_normal = ExtResource("5_235l2")
 
-[node name="Sauce" type="Button" parent="HBoxContainer"]
+[node name="Sauce" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Sauce"
+texture_normal = ExtResource("6_s6w2y")
 
 [connection signal="pressed" from="HBoxContainer/Order" to="." method="_on_order_pressed"]
 [connection signal="pressed" from="HBoxContainer/Prepare" to="." method="_on_prepare_pressed"]
