@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://mlmn8xey5iy5"]
+[gd_scene load_steps=9 format=3 uid="uid://mlmn8xey5iy5"]
 
 [ext_resource type="Texture2D" uid="uid://c7h4f0g63fhlh" path="res://assets/ticket/TicketLine.svg" id="1_g136u"]
 [ext_resource type="Texture2D" uid="uid://dbrms5p038i8w" path="res://assets/ticket/LineHookBG.svg" id="2_ncm17"]
+[ext_resource type="Texture2D" uid="uid://c7qt22itjfrs1" path="res://assets/ticket/lineandhook.png" id="3_ncm17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncm17"]
 size = Vector2(1523, 151)
@@ -56,6 +57,10 @@ shape = SubResource("RectangleShape2D_g0ahr")
 position = Vector2(0, 109)
 scale = Vector2(1, 0.7)
 shape = SubResource("CircleShape2D_ncm17")
+
+[node name="Lineandhook" type="Sprite2D" parent="."]
+position = Vector2(960, 103)
+texture = ExtResource("3_ncm17")
 
 [connection signal="area_entered" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_exited"]
