@@ -11,4 +11,4 @@ enum TransitionStates {
     RISE
 }
 var transitionState: TransitionStates
-const transitionTimer: float = 0.15
+const transitionTimer: float = 0.1
