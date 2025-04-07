@@ -19,6 +19,7 @@ position = Vector2(922, 551)
 texture = ExtResource("2_jxqi3")
 
 [node name="PageLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 960.0
 offset_top = 540.0

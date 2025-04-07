@@ -7,7 +7,7 @@
 
 [node name="Bowl" type="Node2D"]
 script = ExtResource("1_qlpqq")
-bowlColor = Color(0.71435, 0.40685, 0.342307, 1)
+bowlColor = Color(0.501207, 0.527761, 0.263983, 1)
 
 [node name="BowlMiddle" type="Sprite2D" parent="."]
 position = Vector2(249, 52)
