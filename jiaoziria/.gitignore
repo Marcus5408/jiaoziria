@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# macOS specific ignores
+.DS_Store
+**/.DS_Store
