@@ -37,7 +37,7 @@ texture = ExtResource("5_0gb0w")
 [node name="Ingredients" type="Node2D" parent="."]
 
 [node name="DumplingSkin" parent="Ingredients" instance=ExtResource("4_i0f2h")]
-position = Vector2(238, 617)
+position = Vector2(219, 781)
 
 [node name="FillingIngredient" parent="Ingredients" instance=ExtResource("3_24ehp")]
 position = Vector2(316, 297)
