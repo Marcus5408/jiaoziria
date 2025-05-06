@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://din3gmy0rdvgk"]
+[gd_scene load_steps=4 format=3 uid="uid://din3gmy0rdvgk"]
 
 [ext_resource type="Script" uid="uid://w3qp4xm253mp" path="res://assets/customer/customerNode.gd" id="1_5tllp"]
 [ext_resource type="Texture2D" uid="uid://cs0gpddr7umwe" path="res://assets/character.svg" id="2_f7asb"]
+[ext_resource type="Texture2D" uid="uid://3eq6sd7hke2a" path="res://assets/station-switcher/order.png" id="3_c20pb"]
 
 [node name="CustomerNode" type="Node2D"]
 script = ExtResource("1_5tllp")
@@ -16,11 +17,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -617.0
-offset_right = 69.0
-offset_bottom = -543.0
+offset_left = -52.0
+offset_top = -640.0
+offset_right = 460.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_c20pb")
+ignore_texture_size = true
+stretch_mode = 4
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
