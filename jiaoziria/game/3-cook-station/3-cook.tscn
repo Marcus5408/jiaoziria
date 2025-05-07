@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://7ptt1gqu3lm6"]
+[gd_scene load_steps=2 format=3 uid="uid://7ptt1gqu3lm6"]
+
+[ext_resource type="Texture2D" uid="uid://cvfna14hvcqlq" path="res://game/3-cook-station/bg.png" id="1_liva6"]
 
 [node name="CookStation" type="Control"]
 layout_mode = 3
@@ -8,11 +10,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.379758, 0.302773, 0.165158, 1)
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_liva6")
+centered = false
 
 [node name="PageLabel" type="Label" parent="."]
 visible = false

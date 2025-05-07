@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci2t55itnmeso"
-path="res://.godot/imported/counter.svg-56128f060a25d202517b4bf6baafcdc3.ctex"
+uid="uid://b7q2xjm56vk4k"
+path="res://.godot/imported/bg.png-55aa44d504f6970e43e734e39add99d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/order/counter.svg"
-dest_files=["res://.godot/imported/counter.svg-56128f060a25d202517b4bf6baafcdc3.ctex"]
+source_file="res://game/1-order-station/bg.png"
+dest_files=["res://.godot/imported/bg.png-55aa44d504f6970e43e734e39add99d7.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
