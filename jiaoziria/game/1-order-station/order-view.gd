@@ -6,9 +6,11 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData:Variant,
     var asset = customerNodeData.characterResource.asset
     var customer_instance = asset.instantiate()
     add_child(customer_instance)
+    # move 1 layer down
+    customer_instance.z_index = 0
 
     # place the customer in the center of the screen
-    customer_instance.position = Vector2(960, 960)
+    customer_instance.position = Vector2(960, 800)
     var customerAssetNode = get_node("CustomerNode")
     customerAssetNode.get_node("Button").hide()
 

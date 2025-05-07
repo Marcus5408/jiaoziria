@@ -23,6 +23,20 @@ func _input(event):
         print("Added new customer: ", temp_new_customer.characterResource.name)
         emit_signal("add_new_customer", temp_new_customer)
 
+func _ready():
+    # loop, spawn customer every 5 seconds
+    var customer_timer = Timer.new()
+    customer_timer.wait_time = 5.0
+    customer_timer.one_shot = false
+    customer_timer.timeout.connect(_on_customer_timer_timeout)
+    add_child(customer_timer)
+    customer_timer.start()
+
+func _on_customer_timer_timeout():
+    var temp_new_customer = add_random_customer()
+    print("Added new customer: ", temp_new_customer.characterResource.name)
+    emit_signal("add_new_customer", temp_new_customer)
+
 func add_random_customer():
     # set the character data (pick randomly)
     var temp_new_character = CharacterData.new()
@@ -64,7 +78,6 @@ func _on_store_view_customer_take_order_button_pressed(customerNodeData: Variant
     # hide get order button from the customerAsset
     var customerAssetNode = customerView.get_node("CustomerNode")
     customerAssetNode.get_node("Button").hide()
-
 
 func _on_ticket_layer_order_taken(customerName: String) -> void:
     self.position.y += 1080
