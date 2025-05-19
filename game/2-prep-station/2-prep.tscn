@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=3 uid="uid://xsvmyhmey26i"]
+
+[ext_resource type="Script" path="res://game/2-prep-station/2_prep.gd" id="1_i0f2h"]
+[ext_resource type="Texture2D" uid="uid://s7vgr2eq1gmb" path="res://assets/prep/prep.png" id="2_im0yf"]
+[ext_resource type="PackedScene" uid="uid://t40csg6kr65m" path="res://assets/prep/filling/filling_ingredient.tscn" id="3_24ehp"]
+[ext_resource type="PackedScene" uid="uid://cfdab5rtdwbfn" path="res://assets/prep/dumpling_skin.tscn" id="4_i0f2h"]
+[ext_resource type="Texture2D" uid="uid://cek8kwcvtnmma" path="res://assets/prep/singledumpling.png" id="5_0gb0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r66ce"]
+size = Vector2(312, 204)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8fqh"]
+radius = 85.0
+height = 274.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cmnx"]
+size = Vector2(223.333, 225)
+
+[node name="PrepStation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0f2h")
+
+[node name="PrepStation" type="Sprite2D" parent="." groups=["none"]]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("2_im0yf")
+
+[node name="Area2D" type="Area2D" parent="PrepStation"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrepStation/Area2D"]
+position = Vector2(-1, 204)
+shape = SubResource("RectangleShape2D_r66ce")
+
+[node name="finishDumpling" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 854.0
+offset_right = 1314.0
+offset_bottom = 935.0
+text = "Submit"
+
+[node name="FinishedDumplingImage" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(948, 724)
+texture = ExtResource("5_0gb0w")
+
+[node name="Ingredients" type="Node2D" parent="."]
+
+[node name="DumplingSkin" parent="Ingredients" instance=ExtResource("4_i0f2h")]
+position = Vector2(247, 626)
+
+[node name="Area2D" type="Area2D" parent="Ingredients/DumplingSkin"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/DumplingSkin/Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c8fqh")
+
+[node name="FillingIngredient1" parent="Ingredients" groups=["redF"] instance=ExtResource("3_24ehp")]
+position = Vector2(150, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D" type="Area2D" parent="Ingredients/FillingIngredient1"]
+scale = Vector2(0.990099, 0.964139)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient2" parent="Ingredients" groups=["twoF"] instance=ExtResource("3_24ehp")]
+position = Vector2(325, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D2" type="Area2D" parent="Ingredients/FillingIngredient2"]
+position = Vector2(0, 1.66667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient2/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient3" parent="Ingredients" groups=["threeF"] instance=ExtResource("3_24ehp")]
+position = Vector2(500, 299)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D3" type="Area2D" parent="Ingredients/FillingIngredient3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient3/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient4" parent="Ingredients" groups=["fourF"] instance=ExtResource("3_24ehp")]
+position = Vector2(675, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D4" type="Area2D" parent="Ingredients/FillingIngredient4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient4/StaticBody2D4"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient5" parent="Ingredients" groups=["eightF", "fiveF"] instance=ExtResource("3_24ehp")]
+position = Vector2(850, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D5" type="Area2D" parent="Ingredients/FillingIngredient5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient5/StaticBody2D5"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient6" parent="Ingredients" groups=["sixF"] instance=ExtResource("3_24ehp")]
+position = Vector2(1025, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D6" type="Area2D" parent="Ingredients/FillingIngredient6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient6/StaticBody2D6"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient7" parent="Ingredients" groups=["sevenF"] instance=ExtResource("3_24ehp")]
+position = Vector2(1200, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D7" type="Area2D" parent="Ingredients/FillingIngredient7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient7/StaticBody2D7"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient8" parent="Ingredients" groups=["eightF"] instance=ExtResource("3_24ehp")]
+position = Vector2(1375, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D8" type="Area2D" parent="Ingredients/FillingIngredient8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient8/StaticBody2D8"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient9" parent="Ingredients" groups=["nineF"] instance=ExtResource("3_24ehp")]
+position = Vector2(1550, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D9" type="Area2D" parent="Ingredients/FillingIngredient9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient9/StaticBody2D9"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[node name="FillingIngredient10" parent="Ingredients" groups=["tenF"] instance=ExtResource("3_24ehp")]
+position = Vector2(1725, 300)
+scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D10" type="Area2D" parent="Ingredients/FillingIngredient10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredients/FillingIngredient10/StaticBody2D10"]
+shape = SubResource("RectangleShape2D_7cmnx")
+
+[connection signal="pressed" from="finishDumpling" to="." method="_on_finish_dumpling_pressed"]
+[connection signal="area_entered" from="Ingredients/DumplingSkin/Area2D" to="." method="aEntered"]
+[connection signal="body_entered" from="Ingredients/DumplingSkin/Area2D" to="." method="entered"]

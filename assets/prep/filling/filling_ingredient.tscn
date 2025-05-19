@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://t40csg6kr65m"]
+
+[ext_resource type="Script" path="res://assets/prep/filling/newfillingscript.gd" id="1_k1pt5"]
+[ext_resource type="Texture2D" uid="uid://c8ka0op618dih" path="res://assets/prep/filling/redsquare.png" id="2_v3ojv"]
+
+[node name="FillingIngredient" type="Node2D"]
+script = ExtResource("1_k1pt5")
+
+[node name="Filling" type="Sprite2D" parent="."]
+texture = ExtResource("2_v3ojv")
+
+[node name="TextureButton" type="TextureButton" parent="Filling"]
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.191111
+anchor_top = -0.08
+anchor_right = -0.191111
+anchor_bottom = 0.0933333
+offset_left = -146.0
+offset_top = -96.0
+offset_right = 156.0
+offset_bottom = 91.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Filling/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="Filling/TextureButton" to="." method="_on_texture_button_button_up"]
