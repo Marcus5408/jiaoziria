@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clorywvwv05rf"
-path="res://.godot/imported/frame.png-a85886468235ce48c2e773b87bdc58de.ctex"
+path="res://.godot/imported/frame.PNG-59d7c9aac6f33f9090a6564be22e3082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fillings/pork/frame.png"
-dest_files=["res://.godot/imported/frame.png-a85886468235ce48c2e773b87bdc58de.ctex"]
+source_file="res://assets/fillings/pork/frame.PNG"
+dest_files=["res://.godot/imported/frame.PNG-59d7c9aac6f33f9090a6564be22e3082.ctex"]
 
 [params]
 

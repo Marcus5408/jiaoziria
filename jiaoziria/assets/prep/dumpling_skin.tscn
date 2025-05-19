@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfdab5rtdwbfn"]
 
-[ext_resource type="Script" uid="uid://d0n8uklvxwft" path="res://assets/prep/dumplingNewSkin.gd" id="1_kr0gc"]
+[ext_resource type="Script" path="res://assets/prep/dumplingNewSkin.gd" id="1_kr0gc"]
 [ext_resource type="Texture2D" uid="uid://duiw4aa2yvoqu" path="res://assets/prep/dumpling_skin.png" id="2_kr0gc"]
 
 [node name="DumplingSkin" type="Node2D"]

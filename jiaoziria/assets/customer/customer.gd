@@ -2,10 +2,10 @@ class_name CustomerDetails
 extends Resource
 
 enum CustomerStatus {
-    APPROACHING,
-    ORDERING,
-    WAITING,
-    LEAVING
+	APPROACHING,
+	ORDERING,
+	WAITING,
+	LEAVING
 }
 
 @export var characterResource: CharacterData = CharacterData.new()

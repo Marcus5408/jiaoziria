@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=3 uid="uid://oqh0lxyrffvy"]
+
+[ext_resource type="Script" path="res://game/main-scene/main.gd" id="1_kdx1u"]
+[ext_resource type="Script" path="res://game/main-scene/stations_container.gd" id="2_op5nl"]
+[ext_resource type="Script" path="res://game/1-order-station/order_station.gd" id="3_pdwic"]
+[ext_resource type="PackedScene" uid="uid://biitqh5jxdglh" path="res://game/1-order-station/1-store.tscn" id="4_0t2hk"]
+[ext_resource type="PackedScene" uid="uid://dp8r6taqpl7es" path="res://game/1-order-station/1-order.tscn" id="5_m34bn"]
+[ext_resource type="Script" path="res://game/1-order-station/order-view.gd" id="6_fdyb8"]
+[ext_resource type="PackedScene" uid="uid://xsvmyhmey26i" path="res://game/2-prep-station/2-prep.tscn" id="7_00jyd"]
+[ext_resource type="PackedScene" uid="uid://7ptt1gqu3lm6" path="res://game/3-cook-station/3-cook.tscn" id="8_d3if5"]
+[ext_resource type="PackedScene" uid="uid://cfnwnic2bb17k" path="res://game/4-sauce-station/4-sauce.tscn" id="9_bo4iw"]
+[ext_resource type="Script" path="res://game/main-scene/main_customers.gd" id="10_tq6n8"]
+[ext_resource type="Script" path="res://game/main-scene/main_tickets.gd" id="11_qonfm"]
+[ext_resource type="PackedScene" uid="uid://mlmn8xey5iy5" path="res://assets/ticket/ticket_line.tscn" id="12_806kv"]
+[ext_resource type="PackedScene" uid="uid://c41m5pxoqmytx" path="res://assets/station-switcher/stations.tscn" id="13_nrsef"]
+[ext_resource type="PackedScene" uid="uid://dr00h06swieip" path="res://assets/dip_transition/dip_transition.tscn" id="14_gwkje"]
+[ext_resource type="Script" path="res://assets/dip_transition/dip_transition.gd" id="15_d2d74"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_kdx1u")
+
+[node name="StationsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1920
+script = ExtResource("2_op5nl")
+
+[node name="OrderStation" type="VBoxContainer" parent="StationsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1080
+script = ExtResource("3_pdwic")
+
+[node name="StoreView" parent="StationsContainer/OrderStation" instance=ExtResource("4_0t2hk")]
+layout_mode = 2
+
+[node name="OrderView" parent="StationsContainer/OrderStation" instance=ExtResource("5_m34bn")]
+layout_mode = 2
+script = ExtResource("6_fdyb8")
+
+[node name="PrepStation" parent="StationsContainer" instance=ExtResource("7_00jyd")]
+layout_mode = 2
+
+[node name="CookStation" parent="StationsContainer" instance=ExtResource("8_d3if5")]
+layout_mode = 2
+
+[node name="SauceStation" parent="StationsContainer" instance=ExtResource("9_bo4iw")]
+layout_mode = 2
+
+[node name="CustomerLayer" type="Node2D" parent="."]
+position = Vector2(0, 1)
+script = ExtResource("10_tq6n8")
+
+[node name="TicketLayer" type="Node2D" parent="."]
+z_index = 3
+script = ExtResource("11_qonfm")
+
+[node name="TicketLine" parent="TicketLayer" instance=ExtResource("12_806kv")]
+
+[node name="StationsSwitcher" parent="." instance=ExtResource("13_nrsef")]
+z_index = 4
+layout_mode = 1
+
+[node name="DipTransition" parent="." instance=ExtResource("14_gwkje")]
+visible = false
+z_index = 5
+script = ExtResource("15_d2d74")
+
+[connection signal="add_new_customer" from="StationsContainer/OrderStation" to="StationsContainer/OrderStation/StoreView" method="_on_order_station_add_new_customer"]
+[connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsContainer/OrderStation" method="_on_store_view_customer_take_order_button_pressed"]
+[connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsContainer/OrderStation/OrderView" method="_on_store_view_customer_take_order_button_pressed"]
+[connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="TicketLayer" method="_on_store_view_customer_take_order_button_pressed"]
+[connection signal="customer_take_order_button_pressed" from="StationsContainer/OrderStation/StoreView" to="StationsSwitcher" method="_on_store_view_customer_take_order_button_pressed"]
+[connection signal="order_taken" from="TicketLayer" to="StationsContainer/OrderStation" method="_on_ticket_layer_order_taken"]
+[connection signal="order_taken" from="TicketLayer" to="StationsSwitcher" method="_on_ticket_layer_order_taken"]
+[connection signal="station_changed_to_cook" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_cook"]
+[connection signal="station_changed_to_order" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_order"]
+[connection signal="station_changed_to_prep" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_prep"]
+[connection signal="station_changed_to_sauce" from="StationsSwitcher" to="StationsContainer" method="_on_station_changed_to_sauce"]
