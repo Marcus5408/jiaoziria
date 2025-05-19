@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfnwnic2bb17k"]
+
+[ext_resource type="Script" path="res://game/4-sauce-station/4_sauce.gd" id="1_4wl2x"]
+[ext_resource type="Texture2D" uid="uid://5dspy5latu76" path="res://game/1-order-station/Untitled1557_20250517184613.PNG" id="2_mhui7"]
+[ext_resource type="Texture2D" uid="uid://b674j6j3dsmrj" path="res://game/1-order-station/Untitled1524_20250310180440.png" id="5_kafok"]
+[ext_resource type="Texture2D" uid="uid://b8xy6502lhgon" path="res://game/1-order-station/Untitled1526_20250310181454.png" id="6_oahe2"]
+[ext_resource type="Texture2D" uid="uid://c2chs2el5641d" path="res://game/1-order-station/Untitled1528_20250310183018.png" id="7_0mmbm"]
+[ext_resource type="PackedScene" uid="uid://3ys84dtywxpp" path="res://mowww.tscn" id="7_uvwwi"]
+[ext_resource type="Texture2D" uid="uid://co48b7em8apsv" path="res://game/icon.svg" id="8_qf37i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xmle"]
+radius = 12.0
+height = 202.0
+
+[node name="SauceStation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4wl2x")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.379758, 0.302773, 0.165158, 1)
+
+[node name="PageLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1214.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 96
+text = "Sauce"
+horizontal_alignment = 1
+
+[node name="Untitled155720250517184613" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_mhui7")
+
+[node name="Untitled152420250310180440" type="Sprite2D" parent="."]
+position = Vector2(119, 847)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kafok")
+offset = Vector2(0, -250)
+
+[node name="Untitled152620250310181454" type="Sprite2D" parent="."]
+position = Vector2(357, 838)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_oahe2")
+offset = Vector2(0, -250)
+
+[node name="Untitled152820250310183018" type="Sprite2D" parent="."]
+position = Vector2(628, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_0mmbm")
+offset = Vector2(0, -250)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1116.5, 459)
+scale = Vector2(1.08594, 1.23438)
+texture = ExtResource("8_qf37i")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(1294, 451)
+scale = Vector2(1.08594, 1.23438)
+texture = ExtResource("8_qf37i")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(1499, 462)
+scale = Vector2(1.08594, 1.23438)
+texture = ExtResource("8_qf37i")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(1666, 462)
+scale = Vector2(1.08594, 1.23438)
+texture = ExtResource("8_qf37i")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(1656, 643)
+scale = Vector2(1.08594, 1.23438)
+texture = ExtResource("8_qf37i")
+
+[node name="meow" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="meow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meow/Area2D"]
+position = Vector2(689, 759)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0xmle")
+
+[node name="snappoint" type="Node2D" parent="meow/Area2D/CollisionShape2D"]
+position = Vector2(-5.00002, -533)
+rotation = -1.5708
+
+[node name="meow2" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="meow2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meow2/Area2D"]
+position = Vector2(1219, 754)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0xmle")
+
+[node name="snappoint" type="Node2D" parent="meow2/Area2D"]
+visible = false
+position = Vector2(687, 758)
+
+[node name="Node2D" parent="." instance=ExtResource("7_uvwwi")]
+position = Vector2(136, 424)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="area_entered" from="meow/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="meow/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="meow2/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="meow2/Area2D" to="." method="_on_area_2d_area_exited"]
