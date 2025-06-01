@@ -89,10 +89,6 @@ func _set_filling_on_ticket(filling: OrderData.FillingType, fillingNumber: int):
 			"color": Color(1.0, 0.6157, 0.4745),
 			"image": _get_image_path(OrderData.FillingType.KIMCHI, ImageType.ICON)
 			},
-		OrderData.FillingType.ORPHEUS: {
-			"color": Color(0.6745, 0.8902, 1.0),
-			"image": _get_image_path(OrderData.FillingType.ORPHEUS, ImageType.ICON)
-			},
 		OrderData.FillingType.NONE: {
 			"color": Color(0.8784, 0.8784, 0.8784),
 			"image": _get_image_path(OrderData.FillingType.NONE, ImageType.ICON)
@@ -199,6 +195,10 @@ func set_ticket_info(ticket_info: OrderData):
 	cookingMethod = ticket_info.cookingMethod
 	sauce1Base = ticket_info.sauce1["base"]
 	sauce1Addition1 = ticket_info.sauce1["addition1"]
+	print(sauce1Base)
+	print("meow")
+	print(sauce1Addition1)
+	print(filling1)
 	Global.ingred = {
 		"cm": cookingMethod,
 		"s": sauce1Base,
@@ -207,14 +207,13 @@ func set_ticket_info(ticket_info: OrderData):
 	}
 
 func _ready():
-	var ticketIDLabel = $TicketI
+	var ticketIDLabel = $TicketID
 	ticketIDLabel.text = "HC" + str(ticketID)
 	ticketButton.set_process_input(false)
 	ticketButton.set_process(false)
 	original_position = position
 	_set_cooking_method(cookingMethod)
 	_set_filling_on_ticket(filling1, 1)
-	_set_filling_on_ticket(filling2, 2)
 	_set_clock_target(cookingTime)
 	for i in range(1, 4):
 		_set_sauce_base(i, self.get("sauce%dBase" % i))

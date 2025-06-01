@@ -5,13 +5,16 @@ var store_closing_time = 60.0
 var store_timer
 var customer_timer
 var customer_count = 0
-
+var meow
 func _ready():
+	meow = $Button
 	customer_timer = Timer.new()
 	customer_timer.wait_time = 5.0
 	add_child(customer_timer)
 	customer_timer.start()
-
+func _process(delta):
+	if(Global.one == true and Global.two == true and Global.three == true):
+		meow.visible = true
 func open_store():
 	store_open = true
 	# start store timer
@@ -57,3 +60,7 @@ signal customer_take_order_button_pressed(customerNodeData: Variant, customerNam
 
 func _on_customer_take_order_button_pressed(customerNodeData: Variant, customerName: String) -> void:
 	emit_signal("customer_take_order_button_pressed", customerNodeData, customerName)
+
+
+func _on_button_pressed() -> void:
+	Global.awawa = true

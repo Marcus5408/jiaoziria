@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d042wxnpas6ep"]
+
+[ext_resource type="Script" path="res://assets/prep/filling/newfillingscript.gd" id="1_ix3j0"]
+[ext_resource type="Texture2D" uid="uid://pnb730qm25lc" path="res://game/1-order-station/Untitled1551_20250330181758-Photoroom.png" id="2_tskiq"]
+
+[node name="FillingIngredient" type="Node2D"]
+script = ExtResource("1_ix3j0")
+
+[node name="Filling" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tskiq")
+
+[node name="TextureButton" type="TextureButton" parent="Filling"]
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.191111
+anchor_top = -0.08
+anchor_right = -0.191111
+anchor_bottom = 0.0933333
+offset_left = -146.0
+offset_top = -96.0
+offset_right = 156.0
+offset_bottom = 91.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Filling/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="Filling/TextureButton" to="." method="_on_texture_button_button_up"]

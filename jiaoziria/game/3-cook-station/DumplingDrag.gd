@@ -15,8 +15,8 @@ var aree
 var safeZone = false
 var parent
 var ticket
+var raarrr = 0
 func _ready():
-	ticket = $"res://assets/ticket/ticket.gd"
 	parent = get_parent()
 	original_position = global_position
 	inArea = false
@@ -29,8 +29,9 @@ func _on_texture_button_button_down():
 	drag_offset = get_global_mouse_position() - position
 	if(timed):
 		secTime.stop()
+		Global.two = true
 		if(safeZone):
-			print("add point");
+			Global.score += 1
 	print("Dumpling skin pressed, dragging started")
 
 func _process(_delta):
@@ -72,21 +73,12 @@ func _on_area_2d_area_entered(monkey: Area2D) -> void:
 	print(original_position)
 
 func startingClock():
-	print(ticket.cookingMethod)
 	if((aree == parent.get_node("Tbar1")) or (aree == parent.get_node("Tbar2")) or (aree == parent.get_node("Bbar1")) or (aree == parent.get_node("Bbar2"))):
 		if(Global.ingred["cm"] == 0):
-			#points up
-			var red = 1
-		else:
-			#points down
-			var blue = 3
+			Global.score += 1
 	else:
 		if(Global.ingred["cm"] == 1):
-			#points up
-			var green = 3
-		else:
-			#points down
-			var burr = 3
+			Global.score += 1
 	timed = true
 	aree.get_node("Sprite2D2").visible = true
 	aree.get_node("Sprite2D2").scale = Vector2(0, 1)
@@ -102,4 +94,7 @@ func sOut() -> void:
 func pOut() -> void:
 	safeZone = false;
 func seOut() -> void:
-	aree.get_node("Sprite2D2").scale = Vector2(aree.get_node("Sprite2D2").scale.x + 0.1, 1)
+		if(raarrr < 10):
+			aree.get_node("Sprite2D2").scale = Vector2(aree.get_node("Sprite2D2").scale.x + 0.1, 1)
+			raarrr += 1
+			print(raarrr)

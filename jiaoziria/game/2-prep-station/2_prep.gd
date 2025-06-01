@@ -103,7 +103,29 @@ func dumpling_activate():
 
 func _on_finish_dumpling_pressed() -> void:
 	if ((anyF == true or none == true) and dumpling_skin_active == true):
-		
+		if(Global.ingred["f"] == 10 and fiveF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 4 and threeF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 8 and sixF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 6 and redF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 1 and none == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 11 and twoF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 7 and fourF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 3 and sevenF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 5 and eightF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 2 and nineF == true):
+			Global.score += 1
+		if(Global.ingred["f"] == 9 and tenF == true):
+			Global.score += 1
+		Global.one = true
 		finishedDumplingImage.visible = true
 		IngredientsSomething.visible = false
 		finishedDumplingButton.visible = false

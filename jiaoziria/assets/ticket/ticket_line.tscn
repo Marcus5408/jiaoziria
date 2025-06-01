@@ -1,8 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://mlmn8xey5iy5"]
+[gd_scene load_steps=15 format=3 uid="uid://mlmn8xey5iy5"]
 
 [ext_resource type="Texture2D" uid="uid://c7h4f0g63fhlh" path="res://assets/ticket/TicketLine.svg" id="1_g136u"]
 [ext_resource type="Texture2D" uid="uid://dbrms5p038i8w" path="res://assets/ticket/LineHookBG.svg" id="2_ncm17"]
 [ext_resource type="Texture2D" uid="uid://c7qt22itjfrs1" path="res://assets/ticket/lineandhook.png" id="3_ncm17"]
+[ext_resource type="Texture2D" uid="uid://my846adh83fd" path="res://assets/prep/download (1).jpg" id="4_edoi1"]
+[ext_resource type="Script" path="res://assets/ticket/download(1).gd" id="5_gjsdg"]
+[ext_resource type="Script" path="res://assets/ticket/download(1)2.gd" id="6_nm1fr"]
+[ext_resource type="Script" path="res://assets/ticket/download(1)3.gd" id="7_4yn1l"]
+[ext_resource type="Script" path="res://assets/ticket/download(1)4.gd" id="8_m2c8q"]
+[ext_resource type="Script" path="res://assets/ticket/download(1)5.gd" id="9_1ttir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncm17"]
 size = Vector2(1523, 151)
@@ -61,6 +67,36 @@ shape = SubResource("CircleShape2D_ncm17")
 [node name="Lineandhook" type="Sprite2D" parent="."]
 position = Vector2(960, 103)
 texture = ExtResource("3_ncm17")
+
+[node name="Download(1)" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(110, 81)
+texture = ExtResource("4_edoi1")
+script = ExtResource("5_gjsdg")
+
+[node name="Download(1)2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(310, 81)
+texture = ExtResource("4_edoi1")
+script = ExtResource("6_nm1fr")
+
+[node name="Download(1)3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(510, 81)
+texture = ExtResource("4_edoi1")
+script = ExtResource("7_4yn1l")
+
+[node name="Download(1)4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(710, 81)
+texture = ExtResource("4_edoi1")
+script = ExtResource("8_m2c8q")
+
+[node name="Download(1)5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(910, 81)
+texture = ExtResource("4_edoi1")
+script = ExtResource("9_1ttir")
 
 [connection signal="area_entered" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="TicketLine/TicketLineArea2D" to="." method="_on_area_2d_area_exited"]
