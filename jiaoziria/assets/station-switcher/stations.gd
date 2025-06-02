@@ -6,20 +6,20 @@ signal station_changed_to_cook
 signal station_changed_to_sauce
 
 func _on_order_pressed() -> void:
-    emit_signal("station_changed_to_order")
+	emit_signal("station_changed_to_order")
 
 func _on_prepare_pressed() -> void:
-    emit_signal("station_changed_to_prep")
+	emit_signal("station_changed_to_prep")
 
 func _on_cook_pressed() -> void:
-    emit_signal("station_changed_to_cook")
+	emit_signal("station_changed_to_cook")
 
 func _on_sauce_pressed() -> void:
-    emit_signal("station_changed_to_sauce")
+	emit_signal("station_changed_to_sauce")
 
 
 func _on_store_view_customer_take_order_button_pressed(_customerNodeData:Variant, _customerName:String) -> void:
-    self.hide()
+	self.hide()
 
 func _on_ticket_layer_order_taken(_customerName:String) -> void:
-    self.show()
+	self.show()

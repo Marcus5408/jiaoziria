@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cll03yyf11eas"]
+
+[ext_resource type="Texture2D" uid="uid://cek8kwcvtnmma" path="res://assets/prep/singledumpling.png" id="1_a5p7i"]
+[ext_resource type="Script" path="res://game/3-cook-station/DumplingDrag.gd" id="1_o536p"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_o536p")
+
+[node name="FinishedDumplingImage" type="Sprite2D" parent="."]
+position = Vector2(0, -6.10352e-05)
+scale = Vector2(0.449438, 0.445)
+texture = ExtResource("1_a5p7i")
+
+[node name="TextureButton" type="TextureButton" parent="FinishedDumplingImage"]
+anchors_preset = -1
+anchor_left = 0.099
+anchor_top = 0.077
+anchor_right = 0.099
+anchor_bottom = 0.077
+offset_left = -266.866
+offset_top = -199.8
+offset_right = 183.134
+offset_bottom = 131.2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-803, -610)
+polygon = PackedVector2Array(806, 686, 744, 678, 709, 650, 698, 611, 722, 568, 749, 547, 769, 539, 824, 534, 851, 543, 884, 577, 906, 624, 877, 666)
+
+[connection signal="button_down" from="FinishedDumplingImage/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="FinishedDumplingImage/TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

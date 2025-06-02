@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0cohuqk7nbbf"
-path="res://.godot/imported/full.png-54df70b8166da3c9601615a734892a2d.ctex"
+path="res://.godot/imported/full.PNG-be489a4b22b71333c0bf1f578db438ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fillings/pork/full.png"
-dest_files=["res://.godot/imported/full.png-54df70b8166da3c9601615a734892a2d.ctex"]
+source_file="res://assets/fillings/pork/full.PNG"
+dest_files=["res://.godot/imported/full.PNG-be489a4b22b71333c0bf1f578db438ce.ctex"]
 
 [params]
 

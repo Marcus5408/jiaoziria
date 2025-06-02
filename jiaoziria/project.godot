@@ -13,8 +13,8 @@ config_version=5
 config/name="Mama's Jiaoziria"
 config/description="As a new employee at Mama's Jiaoziria, you’ll learn to craft perfect *jiaozi* (dumplings), take on a growing flood of orders, and impress even the toughest food critics."
 config/version="0.1.0"
-run/main_scene="uid://oqh0lxyrffvy"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="res://game/2-prep-station/main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="uid://c015ulc7u4slk"
 config/macos_native_icon="res://game/app-icons/Jiaoziria.icns"
 
@@ -22,12 +22,17 @@ config/macos_native_icon="res://game/app-icons/Jiaoziria.icns"
 
 LokGlobalStorageManager="*res://addons/locker/scripts/storage_manager/global_storage_manager.gd"
 Main="*res://game/main-scene/main.gd"
+Global="*res://global.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Mama-s Jiaoziria"
 
 [editor_plugins]
 
