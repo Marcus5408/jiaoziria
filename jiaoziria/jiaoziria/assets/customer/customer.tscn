@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://din3gmy0rdvgk"]
+
+[ext_resource type="Script" path="res://assets/customer/customerNode.gd" id="1_5tllp"]
+[ext_resource type="Texture2D" uid="uid://cs0gpddr7umwe" path="res://assets/character.svg" id="2_f7asb"]
+
+[sub_resource type="Theme" id="Theme_nmiwt"]
+
+[node name="CustomerNode" type="Node2D"]
+script = ExtResource("1_5tllp")
+
+[node name="Customer" type="Sprite2D" parent="."]
+position = Vector2(0, -262)
+texture = ExtResource("2_f7asb")
+
+[node name="Button" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -608.0
+offset_right = 70.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_nmiwt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Button"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 31.0
+offset_right = 155.0
+offset_bottom = 93.0
+text = "Get Order"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

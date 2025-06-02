@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dp8r6taqpl7es"]
+
+[node name="CustomerView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.379758, 0.302773, 0.165158, 1)
+
+[node name="PageLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 428.0
+offset_right = 1273.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 96
+text = "Customer gives order here"
+horizontal_alignment = 1
+autowrap_mode = 3

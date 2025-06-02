@@ -1,0 +1,130 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfnwnic2bb17k"]
+
+[ext_resource type="Texture2D" uid="uid://5dspy5latu76" path="res://game/1-order-station/Untitled1557_20250517184613.PNG" id="2_mhui7"]
+[ext_resource type="PackedScene" uid="uid://d0jrtbp4fd78i" path="res://ewwwweee.tscn" id="5_txfd0"]
+[ext_resource type="PackedScene" uid="uid://b0qjulgyk3e0m" path="res://asasas.tscn" id="6_jc7qc"]
+[ext_resource type="PackedScene" uid="uid://dunukyv2ghgby" path="res://testtingg.tscn" id="7_76t4u"]
+[ext_resource type="PackedScene" uid="uid://bq7l5gqmaff1w" path="res://mamama.tscn" id="7_eebjo"]
+[ext_resource type="PackedScene" uid="uid://3ys84dtywxpp" path="res://mowww.tscn" id="7_uvwwi"]
+[ext_resource type="Texture2D" uid="uid://cek8kwcvtnmma" path="res://assets/prep/singledumpling.png" id="8_0jhqx"]
+[ext_resource type="PackedScene" uid="uid://bklpmc583rkul" path="res://watt.tscn" id="8_pguir"]
+[ext_resource type="PackedScene" uid="uid://x6ojyaakab3h" path="res://sauce1.tscn" id="9_ojqif"]
+[ext_resource type="PackedScene" uid="uid://bux4ms0bjg3ie" path="res://sauce meow.tscn" id="10_p0hv5"]
+[ext_resource type="PackedScene" uid="uid://cqba2rvfnq5qf" path="res://sauce 424.tscn" id="11_qq4pj"]
+[ext_resource type="PackedScene" uid="uid://d25a8el128a51" path="res://sauce final.tscn" id="12_bwq85"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xmle"]
+radius = 14.0
+height = 202.0
+
+[node name="SauceStation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.379758, 0.302773, 0.165158, 1)
+
+[node name="PageLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1214.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 96
+text = "Sauce"
+horizontal_alignment = 1
+
+[node name="Untitled155720250517184613" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_mhui7")
+
+[node name="meow" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="meow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meow/Area2D"]
+position = Vector2(687, 758)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0xmle")
+
+[node name="snappoint" type="Node2D" parent="meow/Area2D"]
+position = Vector2(688, 660)
+
+[node name="meow2" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="meow2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meow2/Area2D"]
+position = Vector2(1212, 757)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0xmle")
+
+[node name="snappointe" type="Node2D" parent="meow2/Area2D"]
+position = Vector2(1207, 659)
+
+[node name="Singledumpling" type="Sprite2D" parent="."]
+position = Vector2(914, 902)
+scale = Vector2(0.608614, 0.675)
+texture = ExtResource("8_0jhqx")
+
+[node name="finishDumpling" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1145.0
+offset_top = 854.0
+offset_right = 1314.0
+offset_bottom = 935.0
+scale = Vector2(1.20285, 0.976349)
+text = "Submit"
+
+[node name="group" type="Node2D" parent="."]
+
+[node name="Node2D10" parent="group" groups=["5"] instance=ExtResource("12_bwq85")]
+position = Vector2(1744, 726)
+
+[node name="Node2D9" parent="group" groups=["4"] instance=ExtResource("11_qq4pj")]
+position = Vector2(1484, 721)
+
+[node name="Node2D8" parent="group" groups=["3"] instance=ExtResource("10_p0hv5")]
+position = Vector2(1738, 438)
+scale = Vector2(1, 1)
+
+[node name="Node2D7" parent="group" groups=["2"] instance=ExtResource("9_ojqif")]
+position = Vector2(1484, 439)
+
+[node name="Node2D6" parent="group" groups=["1"] instance=ExtResource("7_76t4u")]
+position = Vector2(1221, 435)
+
+[node name="Node2D5" parent="group" groups=["5"] instance=ExtResource("8_pguir")]
+position = Vector2(558, 428)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D4" parent="group" groups=["4"] instance=ExtResource("7_eebjo")]
+position = Vector2(340, 720)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D3" parent="group" groups=["3"] instance=ExtResource("6_jc7qc")]
+position = Vector2(128, 724)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D2" parent="group" groups=["2"] instance=ExtResource("5_txfd0")]
+position = Vector2(346, 428)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D" parent="group" groups=["1"] instance=ExtResource("7_uvwwi")]
+position = Vector2(136, 424)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="area_entered" from="meow/Area2D" to="group/Node2D" method="_on_area_2d_area_enteredMeow"]
+[connection signal="area_exited" from="meow/Area2D" to="group/Node2D" method="_on_area_2d_area_exitedMeow"]
+[connection signal="area_entered" from="meow2/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="meow2/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="pressed" from="finishDumpling" to="group/Node2D7" method="_on_finish_dumpling_pressed"]
+[connection signal="pressed" from="finishDumpling" to="group/Node2D" method="_on_finish_dumpling_pressed"]

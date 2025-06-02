@@ -1,0 +1,244 @@
+[gd_scene load_steps=20 format=3 uid="uid://yvsoa2ynjvda"]
+
+[ext_resource type="Script" uid="uid://brkv322lhkn45" path="res://assets/ticket/ticket.gd" id="1_q1n30"]
+[ext_resource type="Texture2D" uid="uid://bewmjw0ywb7be" path="res://assets/ticket/ticket.svg" id="2_w1tl6"]
+[ext_resource type="FontFile" uid="uid://ctlqh4almv8s3" path="res://fonts/Nova_Mono/NovaMono-Regular.ttf" id="3_y350l"]
+[ext_resource type="Texture2D" uid="uid://kwih73qenkg2" path="res://assets/ticket/filling1.svg" id="4_3uyju"]
+[ext_resource type="Texture2D" uid="uid://cfg4qcnrouu6n" path="res://assets/ticket/filling2.svg" id="5_7jts2"]
+[ext_resource type="Texture2D" uid="uid://cao1auynhwvb4" path="res://assets/ticket/clock-base.svg" id="5_y350l"]
+[ext_resource type="Texture2D" uid="uid://dt7usty00jv2t" path="res://assets/fillings/none/icon.png" id="6_5rapc"]
+[ext_resource type="Texture2D" uid="uid://c65odh3p72oim" path="res://assets/ticket/clock-hand.svg" id="6_o3t0w"]
+[ext_resource type="Texture2D" uid="uid://bupx8a55gv3po" path="res://assets/ticket/cook-pot.svg" id="8_78dgv"]
+[ext_resource type="Texture2D" uid="uid://2mm3w7oji6fd" path="res://assets/ticket/sauce-base.svg" id="9_7jts2"]
+[ext_resource type="Texture2D" uid="uid://bke5uum1k22yp" path="res://assets/ticket/complete.svg" id="9_iwr3w"]
+[ext_resource type="Texture2D" uid="uid://dklwe3b81upqd" path="res://assets/ticket/sauce-add.svg" id="11_5rapc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwr3w"]
+size = Vector2(316, 144)
+
+[sub_resource type="Animation" id="Animation_5rapc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n2x7t"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_mymab"]
+resource_name = "grow_smaller"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.85, 0.85), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_iwr3w"]
+resource_name = "shrink"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8vdmw"]
+resource_name = "shrink_smaller"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(0.85, 0.85)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2x7t"]
+_data = {
+&"RESET": SubResource("Animation_5rapc"),
+&"grow": SubResource("Animation_n2x7t"),
+&"grow_smaller": SubResource("Animation_mymab"),
+&"shrink": SubResource("Animation_iwr3w"),
+&"shrink_smaller": SubResource("Animation_8vdmw")
+}
+
+[node name="Ticket" type="Node2D"]
+script = ExtResource("1_q1n30")
+filling1 = 3
+filling2 = 7
+
+[node name="TicketArea2D" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TicketArea2D"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_iwr3w")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = -18.0
+offset_right = -76.0
+offset_bottom = 22.0
+grow_horizontal = 2
+scale = Vector2(5.80066, 9.65058)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, 175)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_w1tl6")
+
+[node name="Complete" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 175)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_iwr3w")
+
+[node name="TicketID" type="Label" parent="."]
+offset_left = -107.0
+offset_top = -15.0
+offset_right = -76.0
+offset_bottom = 45.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_y350l")
+theme_override_font_sizes/font_size = 42
+text = "HC1"
+
+[node name="Filling1Base" type="Sprite2D" parent="."]
+position = Vector2(-53, 311)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_3uyju")
+
+[node name="Filling1Icon" type="Sprite2D" parent="."]
+position = Vector2(-77, 311)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("6_5rapc")
+
+[node name="Filling2Base" type="Sprite2D" parent="."]
+position = Vector2(53, 311)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_7jts2")
+
+[node name="Filling2Icon" type="Sprite2D" parent="."]
+position = Vector2(77, 311)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("6_5rapc")
+
+[node name="CookingMethod" type="Sprite2D" parent="."]
+position = Vector2(-22, 230)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_78dgv")
+
+[node name="ClockBase" type="Sprite2D" parent="."]
+position = Vector2(21, 230)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_y350l")
+
+[node name="ClockHand" type="Sprite2D" parent="ClockBase"]
+texture = ExtResource("6_o3t0w")
+offset = Vector2(0, -13)
+
+[node name="Sauce1Base" type="Sprite2D" parent="."]
+position = Vector2(-74, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7jts2")
+
+[node name="Sauce1Add1" type="Sprite2D" parent="Sauce1Base"]
+position = Vector2(1, -98)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce1Add2" type="Sprite2D" parent="Sauce1Base"]
+position = Vector2(1, -183)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce1Add3" type="Sprite2D" parent="Sauce1Base"]
+position = Vector2(1, -267)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce2Base" type="Sprite2D" parent="."]
+position = Vector2(0, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7jts2")
+
+[node name="Sauce2Add1" type="Sprite2D" parent="Sauce2Base"]
+position = Vector2(0, -98)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce2Add2" type="Sprite2D" parent="Sauce2Base"]
+position = Vector2(0, -183)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce2Add3" type="Sprite2D" parent="Sauce2Base"]
+position = Vector2(0, -267)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce3Base" type="Sprite2D" parent="."]
+position = Vector2(74, 176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_7jts2")
+
+[node name="Sauce3Add1" type="Sprite2D" parent="Sauce3Base"]
+position = Vector2(0, -98)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce3Add2" type="Sprite2D" parent="Sauce3Base"]
+position = Vector2(0, -183)
+texture = ExtResource("11_5rapc")
+
+[node name="Sauce3Add3" type="Sprite2D" parent="Sauce3Base"]
+position = Vector2(0, -267)
+texture = ExtResource("11_5rapc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n2x7t")
+}
+blend_times = [&"grow", &"RESET", 0.002, &"grow", &"grow", 0.002, &"grow", &"shrink", 0.002]
+
+[connection signal="area_entered" from="TicketArea2D" to="." method="_on_ticket_area_2d_area_entered"]
+[connection signal="area_exited" from="TicketArea2D" to="." method="_on_ticket_area_2d_area_exited"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]

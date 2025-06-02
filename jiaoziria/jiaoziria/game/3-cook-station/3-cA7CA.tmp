@@ -1,0 +1,204 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ptt1gqu3lm6"]
+
+[ext_resource type="Script" path="res://game/3-cook-station/3_cook.gd" id="1_ic2tg"]
+[ext_resource type="Texture2D" uid="uid://dv8nkwalubvok" path="res://assets/customer/Untitled1556_20250508173617.PNG" id="2_bx8mw"]
+[ext_resource type="PackedScene" uid="uid://cll03yyf11eas" path="res://dumplings.tscn" id="3_gxtkt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_clev8"]
+radius = 37.0135
+
+[node name="CookStation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ic2tg")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.379758, 0.302773, 0.165158, 1)
+
+[node name="CookingStation" type="Sprite2D" parent="BG"]
+position = Vector2(960, 540)
+texture = ExtResource("2_bx8mw")
+
+[node name="AreaT1" type="Area2D" parent="BG/CookingStation"]
+position = Vector2(-766, -214)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BG/CookingStation/AreaT1"]
+polygon = PackedVector2Array(-41, 22, -53, 5, -103, -16, -77, -41, -26, -62, 30, -64, 75, -60, 23, -48, 35, -34, 35, -16, 44, 10, 19, 16, 16, 46, -5, 33, -31, 36)
+
+[node name="SnapPoint" type="Node2D" parent="BG/CookingStation/AreaT1"]
+
+[node name="AreaT2" type="Area2D" parent="BG"]
+position = Vector2(523, 337)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaT2"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaT2"]
+
+[node name="AreaT3" type="Area2D" parent="BG"]
+position = Vector2(829, 361)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaT3"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaT3"]
+
+[node name="AreaT4" type="Area2D" parent="BG"]
+position = Vector2(1159, 359)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaT4"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaT4"]
+
+[node name="AreaB1" type="Area2D" parent="BG"]
+position = Vector2(188, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaB1"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaB1"]
+
+[node name="AreaB2" type="Area2D" parent="BG"]
+position = Vector2(515, 646)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaB2"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaB2"]
+
+[node name="AreaB3" type="Area2D" parent="BG"]
+position = Vector2(844, 668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaB3"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaB3"]
+
+[node name="AreaB4" type="Area2D" parent="BG"]
+position = Vector2(1168, 673)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/AreaB4"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/AreaB4"]
+
+[node name="Area2D9" type="Area2D" parent="BG"]
+position = Vector2(1689, 821)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Area2D9"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_clev8")
+
+[node name="SnapPoint" type="Node2D" parent="BG/Area2D9"]
+
+[node name="PageLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1167.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 96
+text = "Cook"
+horizontal_alignment = 1
+
+[node name="Node2D" parent="." instance=ExtResource("3_gxtkt")]
+position = Vector2(660, 994)
+
+[node name="Bbar1" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Bbar1"]
+visible = false
+position = Vector2(-3, 0)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Bbar2" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Bbar2"]
+visible = false
+position = Vector2(328, -1)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Bbar3" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Bbar3"]
+visible = false
+position = Vector2(657, 0)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Bbar4" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Bbar4"]
+visible = false
+position = Vector2(986, 0)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Tbar1" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Tbar1"]
+visible = false
+position = Vector2(10, -314)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Tbar2" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Tbar2"]
+visible = false
+position = Vector2(332, -315)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Tbar3" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Tbar3"]
+visible = false
+position = Vector2(647, -314)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="Tbar4" type="Node2D" parent="."]
+position = Vector2(171, 834)
+
+[node name="Sprite2D2" type="Polygon2D" parent="Tbar4"]
+visible = false
+position = Vector2(971, -315)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-4, 13, -11, 0, -7, -13, 3, -16, 146, -13, 152, -9, 156, 0, 155, 8, 150, 14)
+
+[node name="SubTimer" type="Timer" parent="."]
+
+[node name="PostTimer" type="Timer" parent="."]
+
+[node name="SecTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SubTimer" to="Node2D" method="sOut"]
+[connection signal="timeout" from="PostTimer" to="Node2D" method="pOut"]
+[connection signal="timeout" from="SecTimer" to="Node2D" method="seOut"]

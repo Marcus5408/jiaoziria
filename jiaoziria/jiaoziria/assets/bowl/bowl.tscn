@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6qa443ktgp7g"]
+
+[ext_resource type="Texture2D" uid="uid://blbc6yka3mh0q" path="res://assets/bowl/bowl_middle.png" id="1_ebej7"]
+[ext_resource type="Script" uid="uid://d21qh6pg6bxt5" path="res://assets/bowl/bowl.gd" id="1_qlpqq"]
+[ext_resource type="Texture2D" uid="uid://b51k2snfcatat" path="res://assets/bowl/bowl_back.png" id="2_qlpqq"]
+[ext_resource type="Texture2D" uid="uid://bjxpar1lpuq58" path="res://assets/bowl/bowl_front.png" id="3_0unrc"]
+
+[node name="Bowl" type="Node2D"]
+script = ExtResource("1_qlpqq")
+bowlColor = Color(0.501207, 0.527761, 0.263983, 1)
+
+[node name="BowlMiddle" type="Sprite2D" parent="."]
+position = Vector2(249, 52)
+texture = ExtResource("1_ebej7")
+
+[node name="BowlBack" type="Sprite2D" parent="."]
+position = Vector2(250, 40)
+texture = ExtResource("2_qlpqq")
+
+[node name="BowlFront" type="Sprite2D" parent="."]
+position = Vector2(250, 185)
+texture = ExtResource("3_0unrc")
