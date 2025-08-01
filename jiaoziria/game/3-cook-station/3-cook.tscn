@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7ptt1gqu3lm6"]
 
-[ext_resource type="Script" path="res://game/3-cook-station/3_cook.gd" id="1_ic2tg"]
+[ext_resource type="Script" uid="uid://d1omxoud483hi" path="res://game/3-cook-station/3_cook.gd" id="1_ic2tg"]
 [ext_resource type="Texture2D" uid="uid://dv8nkwalubvok" path="res://assets/customer/Untitled1556_20250508173617.PNG" id="2_bx8mw"]
 [ext_resource type="PackedScene" uid="uid://cll03yyf11eas" path="res://dumplings.tscn" id="3_gxtkt"]
 

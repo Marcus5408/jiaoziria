@@ -14,7 +14,7 @@ config/name="Mama's Jiaoziria"
 config/description="As a new employee at Mama's Jiaoziria, you’ll learn to craft perfect *jiaozi* (dumplings), take on a growing flood of orders, and impress even the toughest food critics."
 config/version="0.1.0"
 run/main_scene="res://game/2-prep-station/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c015ulc7u4slk"
 config/macos_native_icon="res://game/app-icons/Jiaoziria.icns"
 

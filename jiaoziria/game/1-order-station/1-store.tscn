@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://biitqh5jxdglh"]
 
-[ext_resource type="Script" path="res://game/1-order-station/1_store.gd" id="1_vfas7"]
+[ext_resource type="Script" uid="uid://tpmt5fceoj8y" path="res://game/1-order-station/1_store.gd" id="1_vfas7"]
 [ext_resource type="Texture2D" uid="uid://ci2t55itnmeso" path="res://assets/order/counter.svg" id="2_jxqi3"]
 
 [node name="StoreView" type="Control"]
